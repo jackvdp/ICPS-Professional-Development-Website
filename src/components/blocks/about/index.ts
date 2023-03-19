@@ -27,6 +27,7 @@ import About26 from './About26';
 import About27 from './About27';
 import About28 from './About28';
 import AboutICPSHome from './AboutICPSHome'
+import AboutICPS from './AboutICPS'
 
 export {
   About1,
@@ -57,5 +58,6 @@ export {
   About26,
   About27,
   About28,
-  AboutICPSHome
+  AboutICPSHome,
+  AboutICPS
 };
