@@ -2,12 +2,10 @@ import { FC } from 'react';
 import Megaphone from 'icons/lineal/Megaphone';
 import { Tiles5 } from 'components/elements/tiles';
 import ListColumn from 'components/reuseable/ListColumn';
-// -------- data -------- //
-import { aboutList2 } from 'data/about';
 
 const About6: FC = () => {
   return (
-    <section className="wrapper bg-light angled upper-end lower-end">
+    <section className="wrapper bg-light upper-end lower-end">
     <div className="container py-14 py-md-16">
     <div className="row gx-lg-8 gx-xl-12 gy-10 mb-14 mb-md-17 align-items-center">
       <div className="col-lg-6 position-relative order-lg-2">

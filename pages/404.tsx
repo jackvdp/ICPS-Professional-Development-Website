@@ -2,7 +2,7 @@ import { NextPage } from 'next';
 import { Fragment } from 'react';
 // -------- custom component -------- //
 import { NavbarICPS } from 'components/blocks/navbar';
-import { Footer8 } from 'components/blocks/footer';
+import { FooterICPS } from 'components/blocks/footer';
 import FigureImage from 'components/reuseable/FigureImage';
 import NextLink from 'components/reuseable/links/NextLink';
 
@@ -35,7 +35,7 @@ const NotFound: NextPage = () => {
       </main>
 
       {/* ========== footer section ========== */}
-      <Footer8 />
+      <FooterICPS />
     </Fragment>
   );
 };

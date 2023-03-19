@@ -4,6 +4,7 @@ import { NavbarICPS } from 'components/blocks/navbar';
 import PageProgress from 'components/common/PageProgress';
 import { HeroICPS } from 'components/blocks/hero';
 import { AboutICPSHome } from 'components/blocks/about';
+import { FooterICPS } from 'components/blocks/footer';
 
 const Home: NextPage = () => {
   return (
@@ -15,6 +16,8 @@ const Home: NextPage = () => {
       <HeroICPS />
 
       <AboutICPSHome />
+
+      <FooterICPS />
 
     </Fragment>
   );

@@ -1,7 +1,8 @@
 import { AboutICPS } from 'components/blocks/about';
 import type { NextPage } from 'next';
 import { Fragment } from 'react';
-import { NavbarICPS } from 'components/blocks/navbar';
+import { NavbarICPS } from 'components/blocks/navbar'
+import { FooterICPS } from 'components/blocks/footer';
 
 const About: NextPage = () => {
     return (
@@ -9,6 +10,8 @@ const About: NextPage = () => {
             <NavbarICPS/>
 
             <AboutICPS />
+
+            <FooterICPS />
         </Fragment>
         
     );

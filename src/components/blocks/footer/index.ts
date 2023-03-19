@@ -16,6 +16,7 @@ import Footer15 from './Footer15';
 import Footer16 from './Footer16';
 import Footer17 from './Footer17';
 import Footer18 from './Footer18';
+import FooterICPS from './FooterICPS';
 
 export {
   Footer1,
@@ -35,5 +36,6 @@ export {
   Footer15,
   Footer16,
   Footer17,
-  Footer18
+  Footer18,
+  FooterICPS
 };
