@@ -25,6 +25,7 @@ import Hero24 from './Hero24';
 import Hero25 from './Hero25';
 import Hero26 from './Hero26';
 import Hero27 from './Hero27';
+import HeroICPS from './HeroICPS'
 
 export {
   Hero1,
@@ -53,5 +54,6 @@ export {
   Hero24,
   Hero25,
   Hero26,
-  Hero27
+  Hero27,
+  HeroICPS
 };

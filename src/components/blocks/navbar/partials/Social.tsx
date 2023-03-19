@@ -1,22 +1,14 @@
+import { contactInfo } from "data/icpsContact";
+
 const Social = () => {
   return (
     <li className="nav-item">
       <nav className="nav social social-muted justify-content-end text-end">
-        <a href="#">
-          <i className="uil uil-twitter" />
-        </a>
-
-        <a href="#">
-          <i className="uil uil-facebook-f" />
-        </a>
-
-        <a href="#">
-          <i className="uil uil-dribbble" />
-        </a>
-
-        <a href="#">
-          <i className="uil uil-instagram" />
-        </a>
+        {contactInfo.links.map(({ id, icon, url }) => (
+          <a href={url} key={id}>
+            <i className={icon} />
+          </a>
+        ))}
       </nav>
     </li>
   );

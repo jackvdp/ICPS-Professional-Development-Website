@@ -14,17 +14,9 @@ import Search from './partials/Search';
 import Social from './partials/Social';
 import Signin from './partials/Signin';
 import Signup from './partials/Signup';
-import Language from './partials/Language';
 import MiniCart from './partials/MiniCart';
 // -------- data -------- //
-import {
-  demos,
-  pages,
-  blogsNavigation,
-  blocksNavigation,
-  projectsNavigation,
-  documentionNavigation
-} from 'data/navigation';
+import { contactInfo } from 'data/icpsContact';
 
 // ===================================================================
 type NavbarProps = {
@@ -42,8 +34,21 @@ type NavbarProps = {
 };
 // ===================================================================
 
+const NavbarICPS = () => {
+    return(
+        <header className="wrapper mb-1">
+         <Navbar
+            info
+            social
+            navClassName="navbar navbar-expand-lg center-nav"
+            button={<NextLink title="Join" href="#" className="btn btn-sm btn-primary rounded" />}
+         />
+        </header>
+    )
+}
+
 const Navbar: FC<NavbarProps> = (props) => {
-  const { navClassName, info, search, social, language, button, cart, fancy, navOtherClass, stickyBox, logoAlt } =
+  const { navClassName, info, search, social, button, cart, fancy, navOtherClass, stickyBox } =
     props;
 
   const sticky = useSticky(350);
@@ -53,13 +58,6 @@ const Navbar: FC<NavbarProps> = (props) => {
   const logo = 'ICPSLogo';
   // dynamically added navbar classname
   const fixedClassName = 'navbar navbar-expand-lg center-nav transparent navbar-light navbar-clone fixed';
-
-  // render inner nav item links
-  const renderLinks = (links: LinkType[]) => {
-    return links.map((item) => (
-      <ListItemLink href={item.url} title={item.title} linkClassName="dropdown-item" key={item.id} />
-    ));
-  };
 
   // all main header contents
   const headerContent = (
@@ -77,45 +75,19 @@ const Navbar: FC<NavbarProps> = (props) => {
         <div className="offcanvas-body ms-lg-auto d-flex flex-column h-100">
           <ul className="navbar-nav">
             {/* ===================== About nav item ===================== */}
-            <li className="nav-item dropdown dropdown-mega">
-              <DropdownToggleLink title="About" className="nav-link dropdown-toggle" />
-
-              <ul className="dropdown-menu mega-menu mega-menu-dark mega-menu-img">
-                <li className="mega-menu-content mega-menu-scroll">
-                  <ul className="row row-cols-1 row-cols-lg-6 gx-0 gx-lg-4 gy-lg-2 list-unstyled">
-                    {demos.map(({ id, title, url, thumnail }) => (
-                      <li className="col" key={id}>
-                        <Link href={url}>
-                          <a className="dropdown-item">
-                            <img
-                              alt={title}
-                              src={`/img/demos/${thumnail}.jpg`}
-                              srcSet={`/img/demos/${thumnail}@2x.jpg 2x`}
-                              className="rounded lift d-none d-lg-block"
-                            />
-                            <span className="d-lg-none">{title}</span>
-                          </a>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <span className="d-none d-lg-flex">
-                    <i className="uil uil-direction" />
-                    <strong>Scroll to view more</strong>
-                  </span>
-                </li>
-              </ul>
-            </li>
-
+            <ListItemLink title="About" href='/about' />
+            <ListItemLink title="Webinars" href='/webinars' />
+            <ListItemLink title="Members" href='/members' />
+            <ListItemLink title="Articles" href='/articles' />
+            <ListItemLink title="Contact" href='/contact' />
           </ul>
 
           {/* ============= show contact info in the small device sidebar ============= */}
           <div className="offcanvas-footer d-lg-none">
             <div>
-              <NextLink title="info@email.com" className="link-inverse" href="mailto:first.last@email.com" />
+              <NextLink title={contactInfo.email} className="link-inverse" href={contactInfo.emailPrompt} />
               <br />
-              <NextLink href="tel:0123456789" title="00 (123) 456 78 90" />
+              <NextLink href={contactInfo.phonePrompt} title={contactInfo.phone} />
               <br />
               <SocialLinks />
             </div>
@@ -126,9 +98,6 @@ const Navbar: FC<NavbarProps> = (props) => {
       {/* ============= right side header content ============= */}
       <div className={navOtherClass}>
         <ul className="navbar-nav flex-row align-items-center ms-auto">
-          {/* ============= language dropdwown ============= */}
-          {language && <Language />}
-
           {/* ============= info button ============= */}
           {info && (
             <li className="nav-item">
@@ -147,22 +116,8 @@ const Navbar: FC<NavbarProps> = (props) => {
             </li>
           )}
 
-          {/* ============= contact button ============= */}
+          {/* ============= Join button ============= */}
           {button && <li className="nav-item d-none d-md-block">{button}</li>}
-
-          {/* ============= shopping cart button ============= */}
-          {cart && (
-            <li className="nav-item">
-              <a
-                data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvas-cart"
-                className="nav-link position-relative d-flex flex-row align-items-center"
-              >
-                <i className="uil uil-shopping-cart" />
-                <span className="badge badge-cart bg-primary">3</span>
-              </a>
-            </li>
-          )}
 
           {/* ============= social icons link ============= */}
           {social && <Social />}
@@ -205,9 +160,6 @@ const Navbar: FC<NavbarProps> = (props) => {
 
       {/* ============= show search box ============= */}
       {search && <Search />}
-
-      {/* ============= cart sidebar ============= */}
-      {cart && <MiniCart />}
     </Fragment>
   );
 };
@@ -224,4 +176,6 @@ Navbar.defaultProps = {
   navClassName: 'navbar navbar-expand-lg center-nav transparent navbar-light'
 };
 
-export default Navbar;
+
+
+export default NavbarICPS;

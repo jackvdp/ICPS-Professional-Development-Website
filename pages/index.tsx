@@ -2,9 +2,8 @@ import { Fragment } from 'react';
 import type { NextPage } from 'next';
 import { NavbarICPS } from 'components/blocks/navbar';
 import PageProgress from 'components/common/PageProgress';
-
-import NextLink from 'components/reuseable/links/NextLink';
-
+import { HeroICPS } from 'components/blocks/hero';
+import { AboutICPSHome } from 'components/blocks/about';
 
 const Home: NextPage = () => {
   return (
@@ -12,13 +11,11 @@ const Home: NextPage = () => {
       <PageProgress />
 
       {/* ========== header section ========== */}
-      <header className="wrapper mb-1">
-      <NavbarICPS
-        info
-        navClassName="navbar navbar-expand-lg center-nav"
-        button={<NextLink title="Join" href="#" className="btn btn-sm btn-primary rounded" />}
-      />
-      </header>
+      <NavbarICPS/>
+
+      <HeroICPS />
+
+      <AboutICPSHome />
 
     </Fragment>
   );
