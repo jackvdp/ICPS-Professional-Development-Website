@@ -20,7 +20,7 @@ const Hero7: FC = () => {
 
         <div className="d-flex justify-content-center">
           <span style={slideInDownAnimate('900ms')}>
-            <NextLink href="/webinars" title="Discover Member Benefits" className="btn btn-lg btn-primary rounded-pill mx-1" />
+            <Button href="benefits" title="Discover Member Benefits" className="btn btn-lg btn-primary rounded-pill mx-1" />
           </span>
 
           <span style={slideInDownAnimate('1200ms')}>
@@ -46,3 +46,29 @@ const Hero7: FC = () => {
 };
 
 export default Hero7;
+
+const Button: FC<ButtonProps> = ({ href, title, className }) => {
+    const scrollToElement = (elementId: string) => {
+        const targetElement = document.getElementById(elementId);
+        if (targetElement) {
+          const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset - 100;
+          window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+        }
+      };
+  
+    return (
+        <button
+          onClick={() => scrollToElement(href)}
+          className={className}
+          data-target-id={href}
+        >
+          {title}
+        </button>
+      );
+  };
+
+interface ButtonProps {
+    href: string;
+    title: string;
+    className?: string;
+}

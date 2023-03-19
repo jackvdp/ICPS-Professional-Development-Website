@@ -10,7 +10,6 @@ const Home: NextPage = () => {
     <Fragment>
       <PageProgress />
 
-      {/* ========== header section ========== */}
       <NavbarICPS/>
 
       <HeroICPS />
