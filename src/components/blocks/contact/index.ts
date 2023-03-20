@@ -11,6 +11,7 @@ import Contact10 from './Contact10';
 import Contact11 from './Contact11';
 import Contact12 from './Contact12';
 import Contact13 from './Contact13';
+import ContactICPS from './ContactICPS'
 
 export {
   Contact1,
@@ -25,5 +26,6 @@ export {
   Contact10,
   Contact11,
   Contact12,
-  Contact13
+  Contact13,
+  ContactICPS
 };

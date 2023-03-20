@@ -1,26 +1,6 @@
 import { FC } from 'react';
 import Accordion from 'components/reuseable/accordion';
 // -------- data -------- //
-const accordions = [
-  {
-    no: 'One',
-    expand: true,
-    heading: 'Professional Design',
-    body: 'Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel.'
-  },
-  {
-    no: 'Two',
-    expand: false,
-    heading: 'Top-Notch Support',
-    body: 'Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel.'
-  },
-  {
-    no: 'Three',
-    expand: false,
-    heading: 'Header and Slider Options',
-    body: 'Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel.'
-  }
-];
 
 const AccordionList: FC = () => {
   return (
@@ -33,3 +13,42 @@ const AccordionList: FC = () => {
 };
 
 export default AccordionList;
+
+const accordions = [
+  {
+    no: 'One',
+    expand: true,
+    heading: 'Access to exclusive webinars',
+    body: "As a member, you'll have the opportunity to participate in webinars led by industry experts and gain valuable insights and knowledge."
+  },
+  {
+    no: 'Two',
+    expand: false,
+    heading: 'Access to research topics',
+    body: 'Stay up-to-date with the latest research in your field and explore new topics to deepen your understanding and improve your skills.'
+  },
+  {
+    no: 'Three',
+    expand: false,
+    heading: 'Access to a community of like-minded professionals',
+    body: 'Share ideas, ask questions, and network with people from a variety of industries and backgrounds.'
+  },
+  {
+    no: 'Four',
+    expand: false,
+    heading: 'Opportunities for mentorship',
+    body: 'Learn from experienced professionals and get guidance and support as you navigate your career.'
+  },
+  {
+    no: 'Five',
+    expand: false,
+    heading: 'Career resources',
+    body: "Whether you're looking for a new job or want to advance in your current role, we have a variety of resources to help you achieve your career aspirations."
+  },
+  {
+    no: 'Six',
+    expand: false,
+    heading: 'Preferential rates on selected training courses',
+    body: 'You will have access to discounted rates on selected training courses, allowing you to make the most of your budget while investing in your professional development.'
+  }
+];

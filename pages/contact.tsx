@@ -5,7 +5,7 @@ import { NavbarICPS } from 'components/blocks/navbar';
 import { FooterICPS } from 'components/blocks/footer';
 import Breadcrumb from 'components/reuseable/Breadcrumb';
 import PageProgress from 'components/common/PageProgress';
-import ContactForm from 'components/common/ContactForm';
+import { ContactICPS } from 'components/blocks/contact';
 import { contactInfo } from 'data/icpsContact';
 
 const Contact: NextPage = () => {
@@ -101,16 +101,12 @@ const Contact: NextPage = () => {
             </div>
 
             {/* ========== contact form section ========== */}
-            <div className="row">
-              <div className="col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
-                <h2 className="display-4 mb-3 text-center">Drop Us a Line</h2>
-                <p className="lead text-center mb-10">
-                  Reach out to us from our contact form and we will get back to you shortly.
-                </p>
-
-                <ContactForm />
-              </div>
-            </div>
+            <ContactICPS 
+            title={'Drop Us a Line'} 
+            message={'Reach out to us from our contact form and we will get back to you shortly.'} 
+            showMessage={true}
+            sendButtonTitle='Send Message'
+            />
           </div>
         </div>
       </main>
