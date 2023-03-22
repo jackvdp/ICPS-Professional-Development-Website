@@ -18,8 +18,8 @@ const About: FC = () => {
             </div>
 
             <div className="col-lg-6">
-              <h2 className="display-5 mb-3">About Us</h2>
-              <p className="lead fs-lg">
+              <h2 className="display-5 mb-6">About Us</h2>
+              <p>
               The International Centre for Parliamentary Studies exists to promote effective policy making and good governance through better interaction between Parliaments, Governments and other stakeholders in society.
               </p>
               <p>

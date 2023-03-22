@@ -4,106 +4,98 @@ import { FC, Fragment } from 'react';
 // -------- custom component -------- //
 import FigureImage from './FigureImage';
 import NextLink from 'components/reuseable/links/NextLink';
-import SocialLinks from 'components/reuseable/SocialLinks';
 // -------- data -------- //
-import data from 'data/blog-sidebar';
+import webinars from 'data/webinars/webinars';
+import { WebinarProp } from '../../../pages/webinars';
 
-// ========================================================
-type BlogSidebarProps = { thumbnail?: string };
-// ========================================================
-
-const BlogSidebar: FC<BlogSidebarProps> = ({ thumbnail }) => {
+const BlogSidebar: FC = () => {
   return (
     <Fragment>
       <div className="widget">
-        <h4 className="widget-title mb-3">About Us</h4>
-        {thumbnail && (
-          <figure className="rounded mb-4">
-            <img className="img-fluid" src={thumbnail} alt="" />
-          </figure>
-        )}
+        <h4 className="widget-title mb-3">About</h4>
         <p>
-          Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum. Nulla vitae elit
-          libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus.
+        We are excited to offer a wide range of webinars on various topics to help you continue your professional development and grow in your career. Our webinars are led by experienced industry professionals and offer valuable insights and practical takeaways that you can immediately apply to your work.
         </p>
-
-        <SocialLinks className="nav social" />
       </div>
 
-      {/* ========== popular posts section ========== */}
+      {/* ========== Upcoming Webinars ========== */}
       <div className="widget">
-        <h4 className="widget-title mb-3">Popular Posts</h4>
+        <h4 className="widget-title mb-3">Upcoming Webinars</h4>
 
         <ul className="image-list">
-          {data.popularPosts.map(({ id, title, image, comment, date }) => (
-            <li key={id}>
-              <NextLink title={<FigureImage width={100} height={100} className="rounded" src={image} />} href="#" />
-
-              <div className="post-content">
-                <h6 className="mb-2">
-                  <NextLink className="link-dark" title={title} href="#" />
-                </h6>
-
-                <ul className="post-meta">
-                  <li className="post-date">
-                    <i className="uil uil-calendar-alt" />
-                    <span>{dayjs(date).format('DD MMM YYYY')}</span>
-                  </li>
-
-                  <li className="post-comments">
-                    <Link href="#">
-                      <a>
-                        <i className="uil uil-comment" /> {comment}
-                      </a>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
+          {webinars
+          .filter(({ date }) => new Date(date) >= new Date())
+          .map(({ id, time, title, image, date, description, subtitle}) => (
+            <Webinar 
+            id={id}
+            time={time}
+            title={title}
+            image={image}
+            date={date}
+            subtitle={subtitle}
+            description={description}
+            />
           ))}
         </ul>
       </div>
 
-      {/* ========== categories section ========== */}
+      {/* ========== Previous webinars ========== */}
       <div className="widget">
-        <h4 className="widget-title mb-3">Categories</h4>
+        <h4 className="widget-title mb-3">Previous Webinars</h4>
 
-        <ul className="unordered-list bullet-primary text-reset">
-          {data.categories.map(({ id, title, post, url }) => (
-            <li key={id}>
-              <NextLink title={`${title} (${post})`} href={url} />
-            </li>
+        <ul className="image-list">
+          {webinars
+          .filter(({ date }) => new Date(date) < new Date())
+          .map(({ id, time, title, image, date, description, subtitle }) => (
+            <Webinar 
+            id={id}
+            time={time}
+            title={title}
+            image={image}
+            date={date}
+            subtitle={subtitle}
+            description={description}
+            />
           ))}
         </ul>
       </div>
 
-      {/* ========== tags section ========== */}
-      <div className="widget">
-        <h4 className="widget-title mb-3">Tags</h4>
-
-        <ul className="list-unstyled tag-list">
-          {data.tags.map(({ id, title, url }) => (
-            <li key={id}>
-              <NextLink title={title} href={url} className="btn btn-soft-ash btn-sm rounded-pill" />
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* ========== archieve section ========== */}
-      <div className="widget">
-        <h4 className="widget-title mb-3">Archive</h4>
-
-        <ul className="unordered-list bullet-primary text-reset">
-          {data.archieve.map(({ id, title, url }) => (
-            <li key={id}>
-              <NextLink title={title} href={url} />
-            </li>
-          ))}
-        </ul>
-      </div>
     </Fragment>
   );
 };
 
 export default BlogSidebar;
+
+const Webinar: FC<WebinarProp> = ({ id, time, title, image, date }) => {
+
+  const link = '/webinars/' + id
+
+  return(
+    <li key={id}>
+      <NextLink title={<FigureImage width={100} height={100} className="rounded" src={image} />} href={link} />
+
+      <div className="post-content">
+        <h6 className="mb-2">
+          <NextLink className="link-dark" title={title} href={link} />
+        </h6>
+
+        <ul className="post-meta">
+          <li className="post-date">
+            <i className="uil uil-calendar-alt" />
+            <span>{dayjs(date).format('DD MMM YYYY')}</span>
+          </li>
+
+          <li className="post-comments">
+            <Link href="#">
+              <a>
+                {time}
+              </a>
+            </Link>
+          </li>
+        </ul>
+
+      </div>
+    </li>
+  )
+}
+

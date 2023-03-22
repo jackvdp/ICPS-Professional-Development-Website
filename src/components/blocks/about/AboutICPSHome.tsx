@@ -15,9 +15,9 @@ const About6: FC = () => {
       <div className="col-lg-6" id="benefits">
         <Megaphone className="icon-svg-md mb-4" />
 
-        <h2 className="display-4 mb-3">Welcome to the Professional Development Members' Network!</h2>
+        <h2 className="display-4 mb-6">Welcome to the Professional Development Members' Network!</h2>
 
-        <p className="lead fs-lg">
+        <p>
         We understand the importance of continuously learning and growing in your career, which is why we've created a platform for professionals, working in public service, to connect, collaborate, and share knowledge. Our goal is to provide you with the tools and resources you need to excel in your field and reach your full potential.
         </p>
 
