@@ -10,17 +10,18 @@ type BlogCard3Props = {
   image: string;
   category: string;
   description: string;
+  date: string;
 };
 // ========================================================
 
 const BlogCard3: FC<BlogCard3Props> = (props) => {
-  const { title, category, description, link, image } = props;
+  const { title, category, description, link, image, date } = props;
 
   return (
     <article className="item post col-md-6">
       <div className="card">
         <figure className="card-img-top overlay overlay-1 hover-scale">
-          <Link href="#">
+          <Link href={link}>
             <a>
               <FigureImage width={560} height={350} src={image} />
               <span className="bg" />
@@ -52,23 +53,7 @@ const BlogCard3: FC<BlogCard3Props> = (props) => {
           <ul className="post-meta d-flex mb-0">
             <li className="post-date">
               <i className="uil uil-calendar-alt" />
-              <span>14 Apr 2022</span>
-            </li>
-
-            <li className="post-comments">
-              <Link href="#">
-                <a>
-                  <i className="uil uil-comment" />4
-                </a>
-              </Link>
-            </li>
-
-            <li className="post-likes ms-auto">
-              <Link href="#">
-                <a>
-                  <i className="uil uil-heart-alt" />5
-                </a>
-              </Link>
+              <span>{date}</span>
             </li>
           </ul>
         </div>

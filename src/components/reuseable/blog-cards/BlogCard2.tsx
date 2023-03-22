@@ -8,12 +8,13 @@ type BlogCard2Props = {
   title: string;
   category: string;
   description: string;
+  date: string;
   cardTop: ReactElement;
 };
 // ========================================================
 
 const BlogCard2: FC<BlogCard2Props> = (props) => {
-  const { cardTop, title, category, description, link } = props;
+  const { cardTop, title, category, description, link, date } = props;
 
   return (
     <article className="post">
@@ -40,32 +41,7 @@ const BlogCard2: FC<BlogCard2Props> = (props) => {
           <ul className="post-meta d-flex mb-0">
             <li className="post-date">
               <i className="uil uil-calendar-alt" />
-              <span>5 Jul 2022</span>
-            </li>
-
-            <li className="post-author">
-              <Link href="#">
-                <a>
-                  <i className="uil uil-user" />
-                  <span>By Sandbox</span>
-                </a>
-              </Link>
-            </li>
-
-            <li className="post-comments">
-              <Link href="#">
-                <a>
-                  <i className="uil uil-comment" /> 3<span> Comments</span>
-                </a>
-              </Link>
-            </li>
-
-            <li className="post-likes ms-auto">
-              <Link href="#">
-                <a>
-                  <i className="uil uil-heart-alt" />3
-                </a>
-              </Link>
+              <span>{date}</span>
             </li>
           </ul>
         </div>

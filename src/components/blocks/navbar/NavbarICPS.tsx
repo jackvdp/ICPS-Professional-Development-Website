@@ -76,8 +76,8 @@ const Navbar: FC<NavbarProps> = (props) => {
           <ul className="navbar-nav">
             {/* ===================== About nav item ===================== */}
             <ListItemLink title="About" href='/about' />
-            <ListItemLink title="Webinars" href='/webinars' />
             <ListItemLink title="Members" href='/members' />
+            <ListItemLink title="Webinars" href='/webinars' />
             <ListItemLink title="Articles" href='/articles' />
             <ListItemLink title="Contact" href='/contact' />
           </ul>
