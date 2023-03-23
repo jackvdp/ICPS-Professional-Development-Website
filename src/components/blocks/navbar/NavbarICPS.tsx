@@ -41,7 +41,7 @@ const NavbarICPS = () => {
             info
             social
             navClassName="navbar navbar-expand-lg center-nav"
-            button={<NextLink title="Join" href="#" className="btn btn-sm btn-primary rounded" />}
+            button={<NextLink title="Join" href="/join" className="btn btn-sm btn-primary rounded" />}
          />
         </header>
     )

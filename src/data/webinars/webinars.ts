@@ -3,7 +3,7 @@ const webinars = [
       id: 1,
       time: '14:00-16:00',
       date: '26 Mar 2022',
-      image: '/img/photos/a1.jpg',
+      image: '/img/photos/bg1.jpg',
       title: 'Building a Learning Culture',
       subtitle: 'Strategies for Success in the Modern Workplace',
       description: `
@@ -14,7 +14,7 @@ const webinars = [
       id: 2,
       time: '14:00-16:00',
       date: '16 Feb 2022',
-      image: '/img/photos/a2.jpg',
+      image: '/img/photos/b2.jpg',
       title: 'The Future of Leadership',
       subtitle: 'Embracing Authenticity, Innovation, and Purpose',
       description: `
@@ -25,7 +25,7 @@ const webinars = [
       id: 3,
       time: '14:00-16:00',
       date: '8 Jan 2022',
-      image: '/img/photos/a3.jpg',
+      image: '/img/photos/b7.jpg',
       title: 'Building a High-Performance Culture within the Public Sector',
       subtitle: 'Strategies for Managing and Motivating Teams',
       description: `
@@ -36,7 +36,7 @@ const webinars = [
       id: 4,
       time: '14:00-16:00',
       date: '8 May 2023',
-      image: '/img/photos/a3.jpg',
+      image: '/img/photos/about22@2x.jpg',
       title: 'Diversity, Equity, and Inclusion in the Workplace',
       subtitle: 'Practical Approaches for Improving Outcomes',
       description: `

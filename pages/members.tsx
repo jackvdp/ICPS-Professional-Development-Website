@@ -8,10 +8,6 @@ import { AboutICPSMembers } from 'components/blocks/about';
 import { ContactICPS } from 'components/blocks/contact';
 
 const ServicesTwo: NextPage = () => {
-  const list = [
-    ['Aenean quam ornare. Curabitur blandit.', 'Nullam quis risus eget urna mollis ornare.'],
-    ['Etiam porta euismod malesuada mollis.', 'Vivamus sagittis lacus vel augue rutrum.']
-  ];
 
   return (
     <Fragment>
