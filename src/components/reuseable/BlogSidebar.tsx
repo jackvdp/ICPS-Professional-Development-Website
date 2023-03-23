@@ -25,7 +25,7 @@ const BlogSidebar: FC = () => {
         <ul className="image-list">
           {webinars
           .filter(({ date }) => new Date(date) >= new Date())
-          .map(({ id, time, title, image, date, description, subtitle}) => (
+          .map(({ id, time, title, image, date, description, subtitle, learning}) => (
             <Webinar 
             id={id}
             time={time}
@@ -34,6 +34,7 @@ const BlogSidebar: FC = () => {
             date={date}
             subtitle={subtitle}
             description={description}
+            learning={learning}
             />
           ))}
         </ul>
@@ -46,7 +47,7 @@ const BlogSidebar: FC = () => {
         <ul className="image-list">
           {webinars
           .filter(({ date }) => new Date(date) < new Date())
-          .map(({ id, time, title, image, date, description, subtitle }) => (
+          .map(({ id, time, title, image, date, description, subtitle, learning }) => (
             <Webinar 
             id={id}
             time={time}
@@ -55,6 +56,7 @@ const BlogSidebar: FC = () => {
             date={date}
             subtitle={subtitle}
             description={description}
+            learning={learning}
             />
           ))}
         </ul>
