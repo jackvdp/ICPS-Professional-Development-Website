@@ -221,6 +221,41 @@ const articles = [
 <h3 id="conclusion">Conclusion</h3>
 <p>Incorporating high performance and agile delivery methodologies into public service organizations can lead to significant benefits, including improved service delivery, greater adaptability, enhanced innovation, and increased employee engagement. By fostering a culture of collaboration, continuous improvement, and adaptability, public service professionals can drive their own professional development while also contributing to the success and effectiveness of their organizations. Ultimately, this will lead to a more responsive, efficient, and innovative public sector, better equipped to meet the needs of the communities it serves.</p>
 `
+    },
+    {
+      id: "7",
+      link: 'articles/7',
+      category: 'Learning',
+      image: '/img/photos/b7.jpg',
+      title: "Empowering Public Service Professionals: A Human-Centered Approach to Skill Development",
+      description: `Explore a human-centered approach to professional development in public service, emphasizing five key design principles and the importance of a strong learning ecosystem.`,
+      date: '23 March 2023', 
+      content: `
+      <h3 id="the-importance-of-professional-development-in-public-service">The Importance of Professional Development in Public Service</h3>
+<p>As the public service environment evolves, it is crucial to develop and retain current employees while ensuring that new hires can quickly acquire the necessary skills to fill gaps in the workforce. At the core of this transformation is a shift in focus towards the learner as the central element in professional development.</p>
+<h3 id="understanding-learning-as-a-human-behavior">Understanding Learning as a Human Behavior</h3>
+<p>It&#39;s essential to recognize that learning is a human behavior, not a mechanical process. To effectively support learning, programs should be outcome-based, self-directed, flexible, accessible, multimodal, personalized, agile, intuitive, and focused on optimizing the learning experience based on the required skills. ICPS adheres to these principles in designing learning programs tailored for the public sector.</p>
+<h3 id="five-key-design-principles-for-professional-development">Five Key Design Principles for Professional Development</h3>
+<ol>
+<li>Human-Centered Learning: Designing learning experiences around the learner is crucial for optimal skill-building.</li>
+<li>Outcome-Based: ICPS works closely with organizations to anchor learning programs against business objectives, capability needs, and performance objectives.</li>
+<li>Skills-Focused: The design team collaborates with organizations to create personalized learning journeys based on skill needs, using human-centered design and adaptive learning.</li>
+<li>Balanced: ICPS ensures the right balance for the needs of diverse audiences, whether large or small groups,experienced or inexperienced, requiring single or a series of courses.</li>
+<li>Adaptive: The team uses research skills, practitioner experience, and active customer feedback loops to identify and address future-focused learning needs.</li>
+</ol>
+<h3 id="optimizing-learning-experiences">Optimizing Learning Experiences</h3>
+<p>ICPS prioritizes content curation from their extensive archive of training materials, which not only maximizes the learner experience but also saves organizations money. This approach also enables the accreditation of content and the delivery of cost-effective, certificated programs that incentivize learning by connecting it to career growth and professional development.</p>
+<h3 id="building-a-strong-learning-ecosystem-for-public-service">Building a Strong Learning Ecosystem for Public Service</h3>
+<p>As the future of public service work continues to present new challenges and requirements, it is vital to establish a robust learning ecosystem. ICPS designs outcome-based courses and programs specifically tailored for organizations working in public service.</p>
+<h3 id="meet-the-icps-design-and-delivery-team">Meet the ICPS Design and Delivery Team</h3>
+<p>Get to know some of the talented individuals who can design courses for your organization by watching the short video clips below:</p>
+<ol>
+<li>Anti-Corruption: <a href="https://youtu.be/2rFAGJNZaho">https://youtu.be/2rFAGJNZaho</a></li>
+<li>Policy Planning: <a href="https://youtu.be/iurvkREsDZ0">https://youtu.be/iurvkREsDZ0</a></li>
+<li>Leadership &amp; Management: <a href="https://youtu.be/-XiR9YRhxSE">https://youtu.be/-XiR9YRhxSE</a></li>
+<li>Governance &amp; Accountability: <a href="https://youtu.be/Nysqk">https://youtu.be/Nysqk</a></li>
+</ol>
+`
     }
   ];
 

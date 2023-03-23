@@ -24,7 +24,7 @@ const Hero7: FC = () => {
           </span>
 
           <span style={slideInDownAnimate('1200ms')}>
-            <NextLink href="/contact" title="Sign up" className="btn btn-lg btn-outline-primary rounded-pill mx-1" />
+            <NextLink href="/join" title="Sign up" className="btn btn-lg btn-outline-primary rounded-pill mx-1" />
           </span>
         </div>
 

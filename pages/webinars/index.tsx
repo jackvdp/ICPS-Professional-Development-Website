@@ -61,11 +61,12 @@ const BlogTwo: NextPage = () => {
 export default BlogTwo;
 
 export interface WebinarProp {
-    id: number;
-    time: string;
-    date: string;
-    image: string;
-    title: string;
-    subtitle: string
-    description: string
-  }
+  id: number;
+  time: string;
+  date: string;
+  image: string;
+  title: string;
+  subtitle: string
+  description: string
+  learning: string
+}

@@ -14,7 +14,7 @@ const ServicesTwo: NextPage = () => {
 
       <NavbarICPS />
 
-      <main className="content-wrapper">
+      <main className="content-wrapper bg-gray">
 
         <div className="container py-14 py-md-16">
             <ContactICPS 

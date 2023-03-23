@@ -9,6 +9,8 @@ import PageProgress from 'components/common/PageProgress';
 // -------- data -------- //
 import articles from 'data/articles/articles'
 
+const sortedArticles = articles.sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
+
 const BlogOne: NextPage = () => {
   return (
     <Fragment>
@@ -41,7 +43,7 @@ const BlogOne: NextPage = () => {
 
                 {/* Latest item is big */}
                 { 
-                    articles.length > 0 && (
+                    sortedArticles.length > 0 && (
                         <div className="blog classic-view mt-n17">
                             <BlogCard2
                                 link={articles[0].link}
@@ -68,7 +70,7 @@ const BlogOne: NextPage = () => {
 
                 {/* Other items are smaller */}
                 {
-                    articles.length > 1 && (
+                    sortedArticles.length > 1 && (
                         <div className="blog grid grid-view">
                             <div className="row isotope gx-md-8 gy-8 mb-8">
                                 {articles.slice(1).map((item) => (

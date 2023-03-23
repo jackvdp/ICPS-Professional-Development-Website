@@ -6,7 +6,7 @@ import { NavbarICPS } from 'components/blocks/navbar';
 import { FooterICPS } from 'components/blocks/footer';
 import PageProgress from 'components/common/PageProgress';
 import NextLink from 'components/reuseable/links/NextLink';
-import BlogDetailsTemplate from 'components/common/BlogDetailsTemplate';
+import BlogDetailsTemplate from 'components/common/ArticleDetails';
 import getArticle from 'data/articles/getArticles';
 import articles from 'data/articles/articles';
 

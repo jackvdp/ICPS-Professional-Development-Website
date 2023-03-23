@@ -21,10 +21,10 @@ const BlogDetailsTemplate: FC<ArticleProps> = (props) => {
             <div className="post-content mb-5">
               <h2 className="h1 mb-4">{props.title}</h2>
               <div
-      dangerouslySetInnerHTML={{
-        __html: props.content,
-      }}
-    ></div>
+                dangerouslySetInnerHTML={{
+                  __html: props.content,
+                }}
+              ></div>
             </div>
           </article>
         </div>

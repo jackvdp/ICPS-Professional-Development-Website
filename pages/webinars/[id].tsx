@@ -6,11 +6,11 @@ import { NavbarICPS } from 'components/blocks/navbar';
 import { FooterICPS } from 'components/blocks/footer';
 import PageProgress from 'components/common/PageProgress';
 import NextLink from 'components/reuseable/links/NextLink';
-import BlogDetailsTemplate from 'components/common/BlogDetailsTemplate';
-import articles from 'data/articles/articles';
+import WebinarDetails from 'components/common/WebinarDetails';
 import { WebinarProp } from '.';
 import getWebinar from 'data/webinars/getWebinars';
 import { ContactICPS } from 'components/blocks/contact';
+import webinars from 'data/webinars/webinars';
 
 interface Params extends ParsedUrlQuery {
   id: string;
@@ -55,15 +55,15 @@ const BlogDetailsOne: NextPage<WebinarProp> = (props) => {
             <div className="row">
               <div className="col-lg-10 mx-auto">
                 <div className="blog single mt-n17">
-                  <BlogDetailsTemplate 
-                  id={props.id.toString()} 
-                  link=''
-                  category='Webinar' 
+                  <WebinarDetails 
+                  id={props.id}
                   image={props.image} 
-                  title={props.title + ': ' + props.subtitle} 
-                  description='Webinar' 
-                  date={props.date} 
-                  content={props.description} />
+                  title={props.title}
+                  subtitle={props.subtitle}
+                  date={props.date}
+                  time={props.time}
+                  description={props.description}
+                  learning={props.learning} />
                 </div>
               </div>
             </div>
@@ -88,10 +88,10 @@ const BlogDetailsOne: NextPage<WebinarProp> = (props) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
 // Replace this with the logic to get all article ids
-    const articleIds = articles.map((article) => article.id);
+    const webinarIds = webinars.map((webinar) => webinar.id);
 
     // Generate an array of paths with the article ids
-    const paths = articleIds.map((id) => ({
+    const paths = webinarIds.map((id) => ({
         params: { id: id.toString() },
     }));
 
