@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import Link from 'next/link';
 
 const CTA3: FC = () => {
   return (
@@ -13,9 +14,9 @@ const CTA3: FC = () => {
             <p className="lead mb-5 px-md-16 px-lg-3">
               Get regular updates about upcoming webinars, new articles and connect with public sector colleagues across the globe. 
             </p>
-            <a href="/join" className="btn btn-primary rounded-pill">
+            <Link href="/join" className="btn btn-primary rounded-pill">
               Join Us
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,6 +1,5 @@
 import { FC, Fragment, ReactElement, ReactNode } from 'react';
 import { useRouter } from 'next/router';
-import { Navbar } from 'components/blocks/navbar';
 import PageProgress from 'components/common/PageProgress';
 import NextLink from 'components/reuseable/links/NextLink';
 
@@ -43,12 +42,7 @@ const BlockLayout: FC<BlockLayoutProps> = ({ title, children }) => {
 
       <div className="content-wrapper">
         {/* ========== header ========== */}
-        <header className="wrapper bg-soft-primary">
-          <Navbar
-            language
-            button={<NextLink title="Contact" href="#" className="btn btn-sm btn-primary rounded-pill" />}
-          />
-        </header>
+ 
 
         {/* ========== page heading ========== */}
         <section className="wrapper bg-soft-primary">

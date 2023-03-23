@@ -27,6 +27,7 @@ const BlogSidebar: FC = () => {
           .filter(({ date }) => new Date(date) >= new Date())
           .map(({ id, time, title, image, date, description, subtitle, learning}) => (
             <Webinar 
+            key={id}
             id={id}
             time={time}
             title={title}
@@ -49,6 +50,7 @@ const BlogSidebar: FC = () => {
           .filter(({ date }) => new Date(date) < new Date())
           .map(({ id, time, title, image, date, description, subtitle, learning }) => (
             <Webinar 
+            key={id}
             id={id}
             time={time}
             title={title}
