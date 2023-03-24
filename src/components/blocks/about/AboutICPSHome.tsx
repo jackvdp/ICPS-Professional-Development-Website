@@ -66,8 +66,8 @@ const accordionProps = [
   {
     no: "4",
     expand: false,
-    heading: "Customized learning opportunities",
-    body: "With a wide range of online courses, webinars, and other learning resources, you can tailor your professional development to your specific needs and goals.",
+    heading: "Career resources",
+    body: "Whether you're looking for a new job or want to advance in your current role, we have a variety of resources to help you achieve your career aspirations.",
   }
 ];
 
