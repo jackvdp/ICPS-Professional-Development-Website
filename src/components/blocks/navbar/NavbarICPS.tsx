@@ -68,7 +68,7 @@ const Navbar: FC<NavbarProps> = (props) => {
 
       <div id="offcanvas-nav" data-bs-scroll="true" className="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
         <div className="offcanvas-header d-lg-none">
-          <h3 className="text-white fs-30 mb-0">Sandbox</h3>
+          <NextLink href="/" title={<img alt="logo" src={`/img/${logo}-White.png`} />} />
           <button type="button" aria-label="Close" data-bs-dismiss="offcanvas" className="btn-close btn-close-white" />
         </div>
 
@@ -107,21 +107,12 @@ const Navbar: FC<NavbarProps> = (props) => {
             </li>
           )}
 
-          {/* ============= search icon button ============= */}
-          {search && (
-            <li className="nav-item">
-              <a className="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-search">
-                <i className="uil uil-search" />
-              </a>
-            </li>
-          )}
-
           {/* ============= Join button ============= */}
           {button && <li className="nav-item d-none d-md-block">{button}</li>}
 
           {/* ============= social icons link ============= */}
           {social && <Social />}
-
+          
           {/* ============= humburger button for small device ============= */}
           <li className="nav-item d-lg-none">
             <button data-bs-toggle="offcanvas" data-bs-target="#offcanvas-nav" className="hamburger offcanvas-nav-btn">
@@ -157,9 +148,6 @@ const Navbar: FC<NavbarProps> = (props) => {
 
       {/* ============= info sidebar ============= */}
       {info && <Info />}
-
-      {/* ============= show search box ============= */}
-      {search && <Search />}
     </Fragment>
   );
 };
