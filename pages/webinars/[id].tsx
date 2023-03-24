@@ -2,14 +2,14 @@ import { NextPage } from 'next';
 import { Fragment } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
-import { NavbarICPS } from 'components/blocks/navbar';
-import { FooterICPS } from 'components/blocks/footer';
+import { Navbar } from 'components/blocks/navbar';
+import { Footer } from 'components/blocks/footer';
 import PageProgress from 'components/common/PageProgress';
 import NextLink from 'components/reuseable/links/NextLink';
-import WebinarDetails from 'components/common/WebinarDetails';
+import WebinarDetails from 'components/blocks/webinar/WebinarDetails';
 import { WebinarProp } from '.';
 import getWebinar from 'data/webinars/getWebinars';
-import { ContactICPS } from 'components/blocks/contact';
+import { Contact } from 'components/blocks/contact';
 import webinars from 'data/webinars/webinars';
 
 interface Params extends ParsedUrlQuery {
@@ -22,7 +22,7 @@ const BlogDetailsOne: NextPage<WebinarProp> = (props) => {
       <PageProgress />
 
       {/* ========== header section ========== */}
-      <NavbarICPS />
+      <Navbar />
 
       <main className="content-wrapper ">
         {/* ========== title section ========== */}
@@ -70,7 +70,7 @@ const BlogDetailsOne: NextPage<WebinarProp> = (props) => {
           </div>
 
           <div className="container pb-14 pb-md-16">
-            <ContactICPS 
+            <Contact
             title='Sign up to the webinar' 
             message='Complete the form below to sign up to this webinar.'
             showMessage={false}
@@ -81,7 +81,7 @@ const BlogDetailsOne: NextPage<WebinarProp> = (props) => {
       </main>
 
       {/* ========== footer section ========== */}
-      <FooterICPS />
+      <Footer />
     </Fragment>
   );
 };

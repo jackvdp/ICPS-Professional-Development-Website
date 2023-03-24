@@ -1,12 +1,12 @@
 import { NextPage } from 'next';
 import { Fragment } from 'react';
 // -------- custom component -------- //
-import { NavbarICPS } from 'components/blocks/navbar';
-import { FooterICPS } from 'components/blocks/footer';
+import { Navbar } from 'components/blocks/navbar';
+import { Footer } from 'components/blocks/footer';
 import PageProgress from 'components/common/PageProgress';
-import BlogTemplate from 'components/common/BlogTemplate';
-import BlogSidebar from 'components/reuseable/BlogSidebar';
-import { CTA3 } from 'components/blocks/call-to-action';
+import WebinarMain from 'components/blocks/webinar/WebinarMain';
+import WebinarSidebar from 'components/blocks/webinar/WebinarSidebar';
+import { CTAJoin } from 'components/blocks/call-to-action';
 
 const BlogTwo: NextPage = () => {
   return (
@@ -14,7 +14,7 @@ const BlogTwo: NextPage = () => {
       <PageProgress />
 
       {/* ========== header section ========== */}
-      <NavbarICPS />
+      <Navbar />
 
       <main className="content-wrapper">
         {/* ========== title section ========== */}
@@ -38,22 +38,22 @@ const BlogTwo: NextPage = () => {
             <div className="row gx-lg-8 gx-xl-12">
               {/* ========== blog details section ========== */}
               <div className="col-lg-8">
-                <BlogTemplate />
+                <WebinarMain />
               </div>
 
               {/* ========== sidebar section ========== */}
               <aside className="col-lg-4 sidebar mt-8 mt-lg-6">
-                <BlogSidebar />
+                <WebinarSidebar />
               </aside>
             </div>
           </div>
         </section>
 
-        <CTA3 />
+        <CTAJoin />
       </main>
 
       {/* ========== footer section ========== */}
-      <FooterICPS />
+      <Footer />
     </Fragment>
   );
 };

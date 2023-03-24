@@ -1,10 +1,10 @@
 import { NextPage } from 'next';
 import { Fragment } from 'react';
 // -------- custom component -------- //
-import { NavbarICPS } from 'components/blocks/navbar';
-import { FooterICPS } from 'components/blocks/footer';
+import { Navbar } from 'components/blocks/navbar';
+import { Footer } from 'components/blocks/footer';
 import PageProgress from 'components/common/PageProgress';
-import { ContactICPS } from 'components/blocks/contact';
+import { Contact } from 'components/blocks/contact';
 
 const ServicesTwo: NextPage = () => {
 
@@ -12,12 +12,12 @@ const ServicesTwo: NextPage = () => {
     <Fragment>
       <PageProgress />
 
-      <NavbarICPS />
+      <Navbar />
 
       <main className="content-wrapper bg-gray">
 
         <div className="container py-14 py-md-16">
-            <ContactICPS 
+            <Contact
             title='Become a member' 
             message='Complete the form below to become a member of ICPS’s professional development network.'
             showMessage={false}
@@ -28,7 +28,7 @@ const ServicesTwo: NextPage = () => {
       </main>
 
       {/* ========== footer section ========== */}
-      <FooterICPS />
+      <Footer />
     </Fragment>
   );
 };

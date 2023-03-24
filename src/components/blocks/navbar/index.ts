@@ -1,3 +1,3 @@
-import NavbarICPS from './NavbarICPS'
+import Navbar from './Navbar'
 
-export { NavbarICPS };
+export { Navbar };

@@ -1,4 +1,4 @@
-import { contactInfo } from "data/icpsContact";
+import { contactInfo } from "data/contact";
 
 const Social = () => {
   return (

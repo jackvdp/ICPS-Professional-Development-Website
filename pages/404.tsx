@@ -1,8 +1,8 @@
 import { NextPage } from 'next';
 import { Fragment } from 'react';
 // -------- custom component -------- //
-import { NavbarICPS } from 'components/blocks/navbar';
-import { FooterICPS } from 'components/blocks/footer';
+import { Navbar } from 'components/blocks/navbar';
+import { Footer } from 'components/blocks/footer';
 import FigureImage from 'components/reuseable/FigureImage';
 import NextLink from 'components/reuseable/links/NextLink';
 
@@ -10,7 +10,7 @@ const NotFound: NextPage = () => {
   return (
     <Fragment>
       {/* ========== header section ========== */}
-      <NavbarICPS/>
+      <Navbar/>
 
       <main className="content-wrapper">
         <section className="wrapper bg-light">
@@ -35,7 +35,7 @@ const NotFound: NextPage = () => {
       </main>
 
       {/* ========== footer section ========== */}
-      <FooterICPS />
+      <Footer />
     </Fragment>
   );
 };

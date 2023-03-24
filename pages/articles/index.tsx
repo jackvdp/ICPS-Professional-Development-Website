@@ -2,8 +2,8 @@ import Image from 'next/image';
 import { NextPage } from 'next';
 import { Fragment } from 'react';
 // -------- custom component -------- //
-import { FooterICPS } from 'components/blocks/footer';
-import { NavbarICPS } from 'components/blocks/navbar';
+import { Footer } from 'components/blocks/footer';
+import { Navbar } from 'components/blocks/navbar';
 import { BlogCard2, BlogCard3 } from 'components/reuseable/blog-cards';
 import PageProgress from 'components/common/PageProgress';
 // -------- data -------- //
@@ -17,7 +17,7 @@ const BlogOne: NextPage = () => {
       <PageProgress />
 
       {/* ========== header section ========== */}
-      <NavbarICPS />
+      <Navbar />
 
       <main className="content-wrapper">
         {/* ========== title section ========== */}
@@ -87,7 +87,7 @@ const BlogOne: NextPage = () => {
       </main>
 
       {/* ========== footer section ========== */}
-      <FooterICPS />
+      <Footer />
     </Fragment>
   );
 };

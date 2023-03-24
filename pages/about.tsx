@@ -1,20 +1,20 @@
-import { AboutICPS } from 'components/blocks/about';
+import { About } from 'components/blocks/about';
 import type { NextPage } from 'next';
 import { Fragment } from 'react';
-import { NavbarICPS } from 'components/blocks/navbar'
-import { FooterICPS } from 'components/blocks/footer';
+import { Navbar } from 'components/blocks/navbar'
+import { Footer } from 'components/blocks/footer';
 
-const About: NextPage = () => {
+const AboutPage: NextPage = () => {
     return (
         <Fragment>
-            <NavbarICPS/>
+            <Navbar/>
 
-            <AboutICPS />
+            <About />
 
-            <FooterICPS />
+            <Footer />
         </Fragment>
         
     );
 }
 
-export default About;
+export default AboutPage;

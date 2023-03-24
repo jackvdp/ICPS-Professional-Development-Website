@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { contactInfo } from 'data/icpsContact';
+import { contactInfo } from 'data/contact';
 
 // ========================================================
 type SocialLinksProps = { className?: string };

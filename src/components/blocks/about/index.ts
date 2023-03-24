@@ -1,9 +1,9 @@
-import AboutICPSHome from './AboutICPSHome'
-import AboutICPS from './AboutICPS'
-import AboutICPSMembers from './AboutICPSMembers';
+import AboutHome from './AboutHome'
+import About from './About'
+import AboutMembers from './AboutMembers';
 
 export {
-  AboutICPSHome,
-  AboutICPS,
-  AboutICPSMembers
+  AboutHome,
+  About,
+  AboutMembers
 };

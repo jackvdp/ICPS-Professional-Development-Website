@@ -1,26 +1,26 @@
 import { Fragment } from 'react';
 import type { NextPage } from 'next';
-import { NavbarICPS } from 'components/blocks/navbar';
+import { Navbar } from 'components/blocks/navbar';
 import PageProgress from 'components/common/PageProgress';
-import { HeroICPS } from 'components/blocks/hero';
-import { AboutICPSHome } from 'components/blocks/about';
-import { FooterICPS } from 'components/blocks/footer';
-import { CTA3 } from 'components/blocks/call-to-action';
+import { Hero } from 'components/blocks/hero';
+import { AboutHome } from 'components/blocks/about';
+import { Footer } from 'components/blocks/footer';
+import { CTAJoin } from 'components/blocks/call-to-action';
 
 const Home: NextPage = () => {
   return (
     <Fragment>
       <PageProgress />
 
-      <NavbarICPS/>
+      <Navbar/>
 
-      <HeroICPS />
+      <Hero />
 
-      <AboutICPSHome />
+      <AboutHome />
 
-      <CTA3 />
+      <CTAJoin />
 
-      <FooterICPS />
+      <Footer />
 
     </Fragment>
   );

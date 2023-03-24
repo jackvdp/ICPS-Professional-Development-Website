@@ -1,7 +1,7 @@
 import NextLink from 'components/reuseable/links/NextLink';
 import SocialLinks from 'components/reuseable/SocialLinks';
 import { FC, Fragment, ReactElement } from 'react';
-import { contactInfo } from 'data/icpsContact';
+import { contactInfo } from 'data/contact';
 
 // ========================================================
 type InfoProps = {

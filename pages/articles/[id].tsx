@@ -2,11 +2,11 @@ import { NextPage } from 'next';
 import { Fragment } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
-import { NavbarICPS } from 'components/blocks/navbar';
-import { FooterICPS } from 'components/blocks/footer';
+import { Navbar } from 'components/blocks/navbar';
+import { Footer } from 'components/blocks/footer';
 import PageProgress from 'components/common/PageProgress';
 import NextLink from 'components/reuseable/links/NextLink';
-import BlogDetailsTemplate from 'components/common/ArticleDetails';
+import BlogDetailsTemplate from 'components/blocks/article/ArticleDetails';
 import getArticle from 'data/articles/getArticles';
 import articles from 'data/articles/articles';
 
@@ -31,7 +31,7 @@ const BlogDetailsOne: NextPage<ArticleProps> = (props) => {
       <PageProgress />
 
       {/* ========== header section ========== */}
-      <NavbarICPS />
+      <Navbar />
 
       <main className="content-wrapper ">
         {/* ========== title section ========== */}
@@ -81,7 +81,7 @@ const BlogDetailsOne: NextPage<ArticleProps> = (props) => {
       </main>
 
       {/* ========== footer section ========== */}
-      <FooterICPS />
+      <Footer />
     </Fragment>
   );
 };

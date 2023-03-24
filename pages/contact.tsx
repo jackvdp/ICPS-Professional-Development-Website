@@ -1,20 +1,19 @@
 import { NextPage } from 'next';
 import { Fragment } from 'react';
 // -------- custom component -------- //
-import { NavbarICPS } from 'components/blocks/navbar';
-import { FooterICPS } from 'components/blocks/footer';
-import Breadcrumb from 'components/reuseable/Breadcrumb';
+import { Navbar } from 'components/blocks/navbar';
+import { Footer } from 'components/blocks/footer';
 import PageProgress from 'components/common/PageProgress';
-import { ContactICPS } from 'components/blocks/contact';
-import { contactInfo } from 'data/icpsContact';
+import { Contact } from 'components/blocks/contact';
+import { contactInfo } from 'data/contact';
 
-const Contact: NextPage = () => {
+const ContactPage: NextPage = () => {
   return (
     <Fragment>
       <PageProgress />
 
       {/* ========== header section ========== */}
-      <NavbarICPS />
+      <Navbar />
 
       <main className="content-wrapper">
         {/* ========== page title section ========== */}
@@ -101,7 +100,7 @@ const Contact: NextPage = () => {
             </div>
 
             {/* ========== contact form section ========== */}
-            <ContactICPS 
+            <Contact
             title={'Drop Us a Line'} 
             message={'Reach out to us from our contact form and we will get back to you shortly.'} 
             showMessage={true}
@@ -112,9 +111,9 @@ const Contact: NextPage = () => {
       </main>
 
       {/* ========== footer section ========== */}
-      <FooterICPS />
+      <Footer />
     </Fragment>
   );
 };
 
-export default Contact;
+export default ContactPage;
