@@ -14,7 +14,7 @@ const CTA3: FC = () => {
             <p className="lead mb-5 px-md-16 px-lg-3">
               Get regular updates about upcoming webinars, new articles and connect with public sector colleagues across the globe. 
             </p>
-            <NextLink href="/join" title="Join Us" className="btn btn-lg btn-outline-primary rounded-pill mx-1" />
+            <NextLink href="/join" title="Join Us" className="btn btn-lg btn-primary rounded-pill mx-1" />
           </div>
         </div>
       </div>
