@@ -68,7 +68,7 @@ const Navbar: FC<NavbarProps> = (props) => {
 
       <div id="offcanvas-nav" data-bs-scroll="true" className="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
         <div className="offcanvas-header d-lg-none">
-          <NextLink href="/" title={<img alt="logo" src={`/img/${logo}-White.png`} />} />
+          <NextLink href="/" title={<img className="mb-4 ms-n1" src="/img/ICPSLogo-White.png" width={120} alt="" />} />
           <button type="button" aria-label="Close" data-bs-dismiss="offcanvas" className="btn-close btn-close-white" />
         </div>
 

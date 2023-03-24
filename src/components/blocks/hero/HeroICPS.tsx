@@ -20,7 +20,7 @@ const Hero7: FC = () => {
 
         <div className="d-flex justify-content-center">
           <span style={slideInDownAnimate('900ms')}>
-            <Button href="benefits" title="Discover Member Benefits" className="btn btn-lg btn-primary rounded-pill mx-1" />
+            <Button href="benefits" title="Member Benefits" className="btn btn-lg btn-primary rounded-pill mx-1" />
           </span>
 
           <span style={slideInDownAnimate('1200ms')}>
