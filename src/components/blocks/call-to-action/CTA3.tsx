@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import Link from 'next/link';
+import NextLink from 'components/reuseable/links/NextLink';
 
 const CTA3: FC = () => {
   return (
@@ -14,9 +14,7 @@ const CTA3: FC = () => {
             <p className="lead mb-5 px-md-16 px-lg-3">
               Get regular updates about upcoming webinars, new articles and connect with public sector colleagues across the globe. 
             </p>
-            <a href="/join" className="btn btn-primary rounded-pill">
-              Join Us
-            </a>
+            <NextLink href="/join" title="Join Is" className="btn btn-lg btn-outline-primary rounded-pill mx-1" />
           </div>
         </div>
       </div>
