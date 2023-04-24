@@ -63,20 +63,23 @@ const BlogDetailsOne: NextPage<WebinarProp> = (props) => {
                   date={props.date}
                   time={props.time}
                   description={props.description}
-                  learning={props.learning} />
+                  learning={props.learning}
+                  youtubeVideo={props.youtubeVideo} />
                 </div>
               </div>
             </div>
           </div>
 
           <div className="container pb-14 pb-md-16">
-            <Contact
-            title='Sign up to the webinar' 
-            message='Complete the form below to sign up to this webinar.'
-            showMessage={false}
-            sendButtonTitle='Sign Up'
-            />
-        </div>
+            { (Date.parse(props.date) >= Date.now()) && (
+              <Contact
+                title='Sign up to the webinar' 
+                message='Complete the form below to sign up to this webinar.'
+                showMessage={false}
+                sendButtonTitle='Sign Up'
+              />
+            )}
+          </div>
         </section>
       </main>
 
@@ -85,6 +88,8 @@ const BlogDetailsOne: NextPage<WebinarProp> = (props) => {
     </Fragment>
   );
 };
+
+
 
 export const getStaticPaths: GetStaticPaths = async () => {
 // Replace this with the logic to get all article ids

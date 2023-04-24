@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import AccordionList from 'components/common/AccordionList';
+import { AccordionProp } from 'components/common/AccordionList';
 
 const About3: FC = () => {
   return (
@@ -21,7 +22,8 @@ const About3: FC = () => {
       </div>
 
       <div className="col-lg-5">
-        <h2 className="fs-16 text-uppercase text-line text-primary mb-3">Members</h2>
+      <h2 className="display-4 mb-6">Welcome to the Professional Development Members' Network</h2>
+        <h2 className="fs-16 text-uppercase text-line text-primary mb-3">About</h2>
         <p className="display-7 mb-7">{mainText}</p>
         <AccordionList items={accordions}/>
       </div>
@@ -31,14 +33,18 @@ const About3: FC = () => {
 
 export default About3;
 
-const mainText = "We are excited to have you join our community of like-minded professionals who are committed to continuous learning and growth in their careers. As a member of our network, you will have access to a wide range of tools and resources to help you excel in your field and reach your full potential."
+const mainText = "We understand the importance of continuously learning and growing in your career, which is why we've created a platform for professionals, working in public service, to connect, collaborate, and share knowledge. Our goal is to provide you with the tools and resources you need to excel in your field and reach your full potential."
 
-const accordions = [
+const accordions: AccordionProp[] = [
   {
     no: 'One',
     expand: true,
     heading: 'Access to exclusive webinars',
-    body: "As a member, you'll have the opportunity to participate in webinars led by industry experts and gain valuable insights and knowledge."
+    body: (
+      <>
+        As a member, you'll have the opportunity to participate in webinars led by industry experts and gain valuable insights and knowledge. Click <a href='/webinars'>here</a> to learn more.
+      </>
+    )
   },
   {
     no: 'Two',
@@ -51,18 +57,6 @@ const accordions = [
     expand: false,
     heading: 'Access to a community of like-minded professionals',
     body: 'Share ideas, ask questions, and network with people from a variety of industries and backgrounds.'
-  },
-  {
-    no: 'Four',
-    expand: false,
-    heading: 'Opportunities for mentorship',
-    body: 'Learn from experienced professionals and get guidance and support as you navigate your career.'
-  },
-  {
-    no: 'Five',
-    expand: false,
-    heading: 'Career resources',
-    body: "Whether you're looking for a new job or want to advance in your current role, we have a variety of resources to help you achieve your career aspirations."
   },
   {
     no: 'Six',

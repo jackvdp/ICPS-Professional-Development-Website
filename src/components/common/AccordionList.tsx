@@ -18,5 +18,5 @@ export interface AccordionProp {
   no: string;
   expand: boolean;
   heading: string;
-  body: string;
+  body: string | React.ReactNode;
 }

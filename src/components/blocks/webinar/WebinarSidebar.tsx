@@ -11,12 +11,6 @@ import { WebinarProp } from '../../../../pages/webinars';
 const BlogSidebar: FC = () => {
   return (
     <Fragment>
-      <div className="widget">
-        <h4 className="widget-title mb-3">About</h4>
-        <p>
-        We are excited to offer a wide range of webinars on various topics to help you continue your professional development and grow in your career. Our webinars are led by experienced industry professionals and offer valuable insights and practical takeaways that you can immediately apply to your work.
-        </p>
-      </div>
 
       {/* ========== Upcoming Webinars ========== */}
       <div className="widget">
@@ -25,7 +19,7 @@ const BlogSidebar: FC = () => {
         <ul className="image-list">
           {webinars
           .filter(({ date }) => new Date(date) >= new Date())
-          .map(({ id, time, title, image, date, description, subtitle, learning}) => (
+          .map(({ id, time, title, image, date, description, subtitle, learning, youtubeVideo}) => (
             <Webinar 
             key={id}
             id={id}
@@ -36,6 +30,7 @@ const BlogSidebar: FC = () => {
             subtitle={subtitle}
             description={description}
             learning={learning}
+            youtubeVideo={youtubeVideo}
             />
           ))}
         </ul>
@@ -48,7 +43,7 @@ const BlogSidebar: FC = () => {
         <ul className="image-list">
           {webinars
           .filter(({ date }) => new Date(date) < new Date())
-          .map(({ id, time, title, image, date, description, subtitle, learning }) => (
+          .map(({ id, time, title, image, date, description, subtitle, learning, youtubeVideo }) => (
             <Webinar 
             key={id}
             id={id}
@@ -59,6 +54,7 @@ const BlogSidebar: FC = () => {
             subtitle={subtitle}
             description={description}
             learning={learning}
+            youtubeVideo={youtubeVideo}
             />
           ))}
         </ul>

@@ -18,20 +18,13 @@ const About: FC = () => {
             <div className="col-lg-6">
               <h2 className="display-5 mb-6">About Us</h2>
               <p>
-              The International Centre for Parliamentary Studies exists to promote effective policy making and good governance through better interaction between Parliaments, Governments and other stakeholders in society.
+              The International Centre for Parliamentary Studies (ICPS) primarily focuses on empowering human capital through capacity building and training. As a research institution of the United Nations Public Administration Network (UNPAN), ICPS offers a range of training programmes, conferences, and policy discussions to address public policy issues globally. The Centre collaborates with international partners like the UNDP and ACEEEO.
               </p>
               <p>
-              The Centre's primary focus is the empowerment of Human Capital through Capacity Building. To this effect, the Centre organises a range of Training Programmes, Conferences and Policy Discussions to address current public policy issues on the International Stage, in the European Union and the UK. These provide a forum for policy discussion, debate, networking and sharing of best practices.
+              ICPS's comprehensive training programmes equip individuals and organizations with the knowledge and skills to tackle challenges facing governments and public sectors worldwide. The Centre's training remains relevant and up-to-date, thanks to its research team that constantly develops and updates its programmes. All professional training courses are accredited by The Institute of Leadership and Management (TILM).
               </p>
               <p>
-              The International Centre for Parliamentary Studies is a research institution of the United Nations Public Administration Network (UNPAN), and also works in partnership with the United Nations Development Programme (UNDP) and the Association of European Election Officials (ACEEEO).
-ICPS publishes The Government Gazette, a quarterly magazine that brings a unique and rounded perspective to the major issues of the day affecting good governance.
-              </p>
-              <p>
-              We also offer international consultancy services across a range of areas, including electoral affairs, regulation, governance, public sector reform, health & security.
-              </p>
-              <p>
-              The Centre operates from its head office in the UK and has regional offices in Mauritius and Brussels. It has a large team of public policy researchers, training experts and internationally renowned experts and speakers.
+              In addition to open programmes in London, ICPS can tailor or design customized in-house training to meet an organization's specific needs, which can be conducted at any location worldwide. Participants benefit from networking opportunities and learning from leading international experts and peers, sharing experiences and best practices.
               </p>
 
               <NextLink title="Learn More" href="https://parlicentre.org/training/international" className="btn btn-primary rounded-pill mt-2" />

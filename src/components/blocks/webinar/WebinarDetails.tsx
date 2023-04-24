@@ -5,6 +5,7 @@ import useLightBox from 'hooks/useLightBox';
 import FigureImage from 'components/reuseable/FigureImage';
 // -------- data -------- //
 import { WebinarProp } from '../../../../pages/webinars';
+import Plyr from 'plyr-react';
 
 const BlogDetailsTemplate: FC<WebinarProp> = (props) => {
   // used for image lightbox
@@ -27,11 +28,16 @@ const BlogDetailsTemplate: FC<WebinarProp> = (props) => {
                 }}
               ></div>
               <p className="h4 mb-8">Learning Objectives:</p>
-              <div
+              <div className="mb-12"
                 dangerouslySetInnerHTML={{
                   __html: props.learning,
                 }}
               ></div>
+              { (props.youtubeVideo != "") && 
+              <Plyr
+              options={{ loadSprite: true, clickToPlay: true }}
+              source={{ type: 'video', sources: [{ src: '6MdjmCs1YaU', provider: 'youtube' }] }}
+            />}
             </div>
           </article>
         </div>

@@ -18,7 +18,7 @@ const BlogTwo: NextPage = () => {
 
       <main className="content-wrapper">
         {/* ========== title section ========== */}
-        <section className="section-frame overflow-hidden">
+        <section className="overflow-hidden">
           <div className="wrapper bg-soft-primary">
             <div className="container py-12 py-md-16 text-center">
               <div className="row">
@@ -69,4 +69,5 @@ export interface WebinarProp {
   subtitle: string
   description: string
   learning: string
+  youtubeVideo: string
 }

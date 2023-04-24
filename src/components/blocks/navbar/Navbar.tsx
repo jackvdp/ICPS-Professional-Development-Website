@@ -70,8 +70,8 @@ const Navbar: FC<NavbarProps> = (props) => {
         <div className="offcanvas-body ms-lg-auto d-flex flex-column h-100">
           <ul className="navbar-nav">
             {/* ===================== About nav item ===================== */}
+            <ListItemLink title="Home" href='/' />
             <ListItemLink title="About" href='/about' />
-            <ListItemLink title="Members" href='/members' />
             <ListItemLink title="Webinars" href='/webinars' />
             <ListItemLink title="Articles" href='/articles' />
             <ListItemLink title="Contact" href='/contact' />

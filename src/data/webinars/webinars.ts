@@ -1,4 +1,6 @@
-const webinars = [
+import { WebinarProp } from "../../../pages/webinars";
+
+const webinars: WebinarProp[] = [
     {
       id: 1,
       time: '14:00-16:00',
@@ -20,7 +22,8 @@ const webinars = [
   <li>Apply best practices for effective communication and collaboration in a learning culture.</li>
   <li>Develop an action plan for building and maintaining a learning culture within their organization.</li>
 </ol>
-      `
+      `,
+      youtubeVideo: ""
     },
     {
       id: 2,
@@ -43,7 +46,8 @@ const webinars = [
   <li>Apply best practices for effective communication and collaboration in a purpose-driven and innovative organization.</li>
   <li>Develop an action plan for embracing authenticity, innovation, and purpose in their leadership style and their organization.</li>
 </ol>
-      `
+      `,
+      youtubeVideo: ""
     },
     {
       id: 3,
@@ -66,7 +70,8 @@ const webinars = [
   <li>Identify strategies for measuring the success of a high-performance culture within their public sector organization.</li>
   <li>Develop an action plan for building and maintaining a high-performance culture within their public sector organization.</li>
 </ol>
-      `
+      `,
+      youtubeVideo: ""
     },
     {
       id: 4,
@@ -89,9 +94,31 @@ const webinars = [
   <li>Identify strategies for measuring the success of diversity, equity, and inclusion initiatives in their organization.</li>
   <li>Develop an action plan for implementing diversity, equity, and inclusion initiatives in their workplace.</li>
 </ol>
-      `
+      `,
+      youtubeVideo: ""
+    },
+    {
+      id: 5,
+      time: '14:00-16:00',
+      date: '28 July 2021',
+      image: '/img/photos/b3.jpg',
+      title: 'A New Perspective on Professional Development in Public Service post Covid-19',
+      subtitle: 'Building Back Better',
+      description: `
+      <p>webinar that discusses the changes brought about by the pandemic in public service and its implications for professional development. The session covers emerging trends, innovative strategies, and best practices for continuous learning and capacity building, highlighting the importance of adaptability and resilience in the evolving landscape of public service.</p>
+      `,
+      learning: `
+      <ol>
+  <li>Understand the impact of Covid-19 on public service and professional development.</li>
+  <li>Identify emerging trends and innovative strategies in professional development for public service post-pandemic.</li>
+  <li>Recognize the importance of continuous learning and capacity building in the new normal.</li>
+  <li>Apply best practices for fostering adaptability and resilience in public service roles.</li>
+  <li>Evaluate methods for incorporating technology and digital tools to enhance professional development.</li>
+  <li>Develop an action plan to implement effective professional development strategies in their respective organizations.</li>
+</ol>
+      `,
+      youtubeVideo: "6MdjmCs1YaU"
     }
   ];
   
   export default webinars
-  

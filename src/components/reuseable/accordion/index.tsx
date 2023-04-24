@@ -3,7 +3,7 @@ import { FC } from 'react';
 // ==================================================
 type AccordionProps = {
   no: string;
-  body: string;
+  body: string | React.ReactNode;
   heading: string;
   expand: boolean;
   type?: 'plain' | 'shadow-lg';
