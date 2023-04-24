@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import AccordionList from 'components/common/AccordionList';
 import { AccordionProp } from 'components/common/AccordionList';
+import Link from 'next/link';
 
 const About3: FC = () => {
   return (
@@ -42,7 +43,7 @@ const accordions: AccordionProp[] = [
     heading: 'Access to exclusive webinars',
     body: (
       <>
-        As a member, you'll have the opportunity to participate in webinars led by industry experts and gain valuable insights and knowledge. Click <a href='/webinars'>here</a> to learn more.
+        As a member, you'll have the opportunity to participate in webinars led by industry experts and gain valuable insights and knowledge. Click <Link href='/webinars'>here</Link> to learn more.
       </>
     )
   },
