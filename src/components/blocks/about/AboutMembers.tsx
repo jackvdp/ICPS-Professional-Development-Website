@@ -62,7 +62,7 @@ const accordions: AccordionProp[] = [
   {
     no: 'Six',
     expand: false,
-    heading: 'Preferential rates on selected training courses',
+    heading: 'Preferential rates on selected training opportunities',
     body: 'You will have access to discounted rates on selected training courses, allowing you to make the most of your budget while investing in your professional development.'
   }
 ];
