@@ -241,6 +241,66 @@ const articles = [
 <li>Governance &amp; Accountability: <a href="https://youtu.be/Nysqk">https://youtu.be/Nysqk</a></li>
 </ol>
 `
+    },
+    {
+      id: "8",
+      link: 'articles/8',
+      category: 'Learning',
+      image: '/img/photos/b1.jpg',
+      title: "Professional Training After Covid-19",
+      description: `After Covid, are we going back to in-person training…… or is there something better that follows on from Virtual learning – Hybrid Learning?`,
+      date: '1 May 2023', 
+      content: `
+      <h3>ICPS's Experience</h3>
+<p>ICPS has been delivering high quality training for individuals and organisations in public service for over 20 years. We pride ourselves in being able to design training that balances academic rigour with practical experience. ICPS’s tried and tested learning content and our trainers are not just experts in learning but also practitioners in Policy, Governance, Parliament alongside all aspects Public Administration and have provided the very best in-person training throughout our operational history.</p>
+<p>We have been at the forefront of delivering innovation in the learning space during this period. To put it in context public institutions been transitioning from ‘pencils to powerpoint’, moving the paper office to the digital office over a 40+ year trajectory. Distance digital communication and working has been a growing component of every work-place, public and private, in the 21st century. Recent events sped up this evolution, and ICPS which had invested heavily on internal innovation in this space, prototyping virtual courses and preparing virtual provision frameworks, was ready to seamlessly deploy them when needed.</p>
+<p>We were delighted that when we transitioned our learning to a fully virtual model during the pandemic and through thoughtful learning design,managed to retain the excellent post course feedback to our schedule of “Virtual” courses.</p>
+<p>Tracy Capald-Drewett, Executive Director commented “Customers have been asking, ‘what next’ following the pandemic? Is ICPS going back to In person Training? “ he also observed ” Prior to the global pandemic the public and commercial landscape had wildly differing approaches to virtual working. Many institutions, such as the EU and UK Civil Service, had embraced virtual working and had provided for it both in terms of digital infrastructure and contractual provision. Others, particularly financial services had significant compliance barriers to enabling a full roll out of virtual working provision. </p>
+<p>Post covid the world is struggling with establishing the ‘new normal’, there are public and political calls for a ‘return to the office’ for public servants, many of whom had majority virtual working arrangements from before the pandemic! Whilst International Labour Force 2022 survey did show a growing trend in the physical return to the workplace across the world this was for the private sector. Civil service physical workplace participation rates remained below or at 50% of capacity for much of the OECD. Whilst this may be a permanent trend or just extended lag on working practices post-pandemic there is currently a significant demand for virtual provision.</p>
+<p>With so much noise being made on the topic we feel that the answer is flexibility, we want to remove barriers to maximise participation and value attribution. Some clients may feel that there is a real or implied increasing mandate for physical attendance of events to justify training budgets and international networking obligations for their departments. “</p>
+<h3>ICPS's Hybrid Approach</h3>
+<p>In addressing this question, the ICPS dedicated learning & development team wanted to look at what has been learned over the last 20 and 3 years? Are there aspects of “Virtual” learning that can be applied to a new even more effective and impactful learning experience.</p>
+<p>We certainly know the significant benefits of in-person training:</p>
+<ul>
+  <li>Physically attending courses enables learners to form deeper personal connections with trainers and co-learners. This element of peer group social support can be critical for some learners who are struggling with components of a course.</li>
+  <li>Forming study groups with like-minded learners and attending in-person promotes personal care and accountability in ways that virtual learning may not.</li>
+  <li>Virtual learning models may lack social and emotional connection, there is a hard limit on how much the human mind can achieve from purely virtual human interaction</li>
+  <li>Virtual training on Zoom or Teams can be challenging if learners have a propensity to keep cameras off during the learning where learners are unprepared or distracted, whereas attending in-person tends to see learners who arrive prepared to make progress rather than to merely check in for attendance</li>
+  <li>Working with trainers and co-learners in-person also contributes to the development of professional soft skills in ways that virtual learning may not.</li>
+  <li>In-person networking opportunities are almost always superior to virtual, the capacity to quickly ascertain shared beliefs, values or alignments between institutions and individuals can be far more rapidly found when supported by secondary and tertiary human communication signifiers (body language etc.) which are lost in the 2d communication space. </li>
+</ul>
+<p>Benefits from the “ Virtual” model:</p>
+<ul>
+  <li>Where the in-person learning model excels at fostering human interaction, the Virtual learning model thrives in facilitating flexibility and accessibility. It can be easier for busy professionals to balance travel, work, and a home/family life with a course that doesn’t require learners to travel and be totally away from the work place.</li>
+  <li>Remote learning (especially a-synchronous remote learning) offers a level of flexibility that’s frankly unachievable for fully in-person programs.</li>
+  <li>In-person training can face potential complications around accessibility:</li>
+  <ul>
+    <li>You aren’t bound by geographical limits with fully remote Virtual Courses.</li>
+    <li>In terms of accessibility, “Virtual” learning models offer an avenue for students who may be physically or financially unable to attend fully in-person courses.</li>
+  </ul>
+  <li>Finally in-person training can throw up problems in relation to departmental delivery capacity:</li>
+  <ul>
+    <li>You can easily timetable ‘staggered’ attendance for groups from the same department meaning that not all capacity for a role is absorbed in training at one time.</li>
+    <li>Or, on the inverse, this allows institutions to place departments on concurrent training pathways without have to ‘gap training’ provision to make sure there is available departmental capacity at all times. This prevents training mismatch between employees in the same/similar roles. </li>
+  </ul>
+</ul>
+<p>The new ICPS ‘Hybrid approach’ offers a number of evolutionary benefits when compared to in-person or the virtual model:</p>
+<ul>
+  <li>You can have key departmental members attend for the networking aspects and bring other members of the team up to the same level of training via virtual.</li>
+  <li>You can have virtual provision offered as a ‘fail over’ for travel related issues. International travel can and will be disrupted by geographical and geopolitical events, hybrid offers a guarantee that training will take place in the expected time period.</li>
+</ul>
+<p>Tracy continued “with what we have learnt, both from years delivering in-person courses and now a full schedule of very successful “Virtual” courses, it must be that we can provide an excellent learning experience that encompasses the benefits of both models. A solution that enables both learners to attend in-person and additionally, enables learners to also attend remotely if they either can't travel or they prefer learning remotely”</p>
+<p>Furthermore, the ICPS L&amp;D team have established how the new functionality available on virtual platforms such as Zoom can be incorporated in ICPS’s own technology platform, therefore enabling our course design to further enhance the learning experience of learners who want to learn both remotely and in-person as part of the ICPS Hybrid experience, with new features including:</p>
+<ul>
+  <li>Switching slides/presentation control from trainer to course facilitator, enabling real focus on key learning points by the trainer</li>
+  <li>The provision of live transcripts, specifically helpful where learners first language may not be English</li>
+  <li>The new “Immersive view” of learners. This functionality brings together all the in-person learners into a single image on the platform</li>
+  <li>The ability to utilise PowerPoint and Prezzipresentations as a backdrop for the trainer, which enables the trainer to signpost agenda items etc</li>
+  <li>Noise suppression for remote learners</li>
+</ul>
+<p>Tracy concluded “We have already successfully delivered several pilots of the ICPS Hybrid approach and feedback has been excellent and we are now capable of delivering a Hybrid approach for our entire open course schedule. And additionally, are able to deliver a Hybrid approach for organisations who want courses specifically developed for groups of learners”</p>
+<p>For more information contact Tracy Capaldi-Drewett at tracy.drewett@parlicentre.co.uk.</p>
+`
     }
   ];
 
