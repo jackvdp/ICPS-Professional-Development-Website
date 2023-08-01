@@ -20,7 +20,7 @@ const ServicesTwo: NextPage = () => {
         {/* ========== page title section ========== */}
         <section
           className="wrapper image-wrapper bg-image bg-overlay text-white"
-          style={{ backgroundImage: 'url(/img/photos/bg1.jpg)' }}
+          style={{ backgroundImage: 'url(/img/photos/unitednations.jpeg)' }}
         >
           <div className="container pt-19 pt-md-21 pb-18 pb-md-20 text-center">
             <div className="row">
