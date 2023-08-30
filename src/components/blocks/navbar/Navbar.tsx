@@ -12,6 +12,7 @@ import Signin from './partials/Signin';
 import Signup from './partials/Signup';
 // -------- data -------- //
 import { contactInfo } from 'data/contact';
+import { useAuth } from 'auth/AuthProvider';
 
 // ===================================================================
 type NavbarProps = {
@@ -48,6 +49,7 @@ const Navbar: FC<NavbarProps> = (props) => {
 
   const sticky = useSticky(350);
   const navbarRef = useRef<HTMLElement | null>(null);
+  const { isLoggedIn, login } = useAuth()
 
   // dynamically render the logo
   const logo = 'ICPSLogo';
@@ -103,7 +105,7 @@ const Navbar: FC<NavbarProps> = (props) => {
           )}
 
           {/* ============= Join button ============= */}
-          {button && <li className="nav-item d-none d-md-block">{button}</li>}
+          {!isLoggedIn && button && <li className="nav-item d-none d-md-block">{button}</li>}
 
           {/* ============= social icons link ============= */}
           {social && <Social />}

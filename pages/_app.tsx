@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
 import { Fragment, useEffect } from 'react';
 import ThemeProvider from 'theme/ThemeProvider';
+import { AuthProvider } from 'auth/AuthProvider';
 
 // Bootstrap and custom scss
 import 'assets/scss/style.scss';
@@ -82,10 +83,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>ICPS Professional Development</title>
       </Head>
 
-      <ThemeProvider>
-        <div className="page-loader" />
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <AuthProvider>
+        <ThemeProvider>
+          <div className="page-loader" />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </AuthProvider>
     </Fragment>
   );
 }
