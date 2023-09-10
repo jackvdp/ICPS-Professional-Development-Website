@@ -1,18 +1,17 @@
 import { FC, Fragment, ReactElement, useRef } from 'react';
 // -------- custom hook -------- //
 import useSticky from 'hooks/useSticky';
+import { useAuth } from 'auth/AuthProvider';
 // -------- custom component -------- //
 import NextLink from 'components/reuseable/links/NextLink';
 import SocialLinks from 'components/reuseable/SocialLinks';
 import ListItemLink from 'components/reuseable/links/ListItemLink';
 // -------- partial header component -------- //
 import Info from './partials/Info';
-import Social from './partials/Social';
 import Signin from './partials/Signin';
 import Signup from './partials/Signup';
 // -------- data -------- //
 import { contactInfo } from 'data/contact';
-import { useAuth } from 'auth/AuthProvider';
 
 // ===================================================================
 type NavbarProps = {
@@ -103,31 +102,28 @@ const Navbar: FC<NavbarProps> = (props) => {
               </a>
             </li>
           )}
+
+          {/* ============= Join/Sign out button ============= */}
+          {!isLoggedIn && button && <li className="nav-item d-none d-md-block">{button}</li>}
           
           {/* ============= Sign in/out button ============= */}
+          <li className="nav-item d-none d-md-block">
           {
             isLoggedIn ?
-            <li className="nav-item" onClick={signout}>
-              <a className="nav-link" data-bs-toggle="offcanvas">
-                <i className="uil-user-circle" />
-              </a>
-            </li> :
-            <li 
-            className="nav-item" 
+            <button 
+            className="btn btn-sm btn-outline-secondary rounded" 
+            onClick={signout}>
+              Sign Out
+            </button> :
+            <button 
+            className="btn btn-sm btn-outline-secondary rounded" 
             data-bs-toggle="modal"
-            data-bs-target="#modal-signin"
-            >
-              <a className="nav-link">
-                <i className="uil-user-circle" />
-              </a>
-            </li>
+            data-bs-target="#modal-signin">
+              Sign In
+            </button> 
           }
-
-           {/* ============= Join/Sign out button ============= */}
-           {!isLoggedIn && button && <li className="nav-item d-none d-md-block">{button}</li>}
-
-          {/* ============= social icons link ============= */}
-          {social && <Social />}
+          </li>
+          
           
           {/* ============= humburger button for small device ============= */}
           <li className="nav-item d-lg-none">

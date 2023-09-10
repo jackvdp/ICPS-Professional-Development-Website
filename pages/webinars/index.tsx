@@ -7,8 +7,12 @@ import PageProgress from 'components/common/PageProgress';
 import WebinarMain from 'components/blocks/webinar/WebinarMain';
 import WebinarSidebar from 'components/blocks/webinar/WebinarSidebar';
 import { CTAJoin } from 'components/blocks/call-to-action';
+import { useAuth } from 'auth/AuthProvider';
 
 const BlogTwo: NextPage = () => {
+
+  const { isLoggedIn } = useAuth()
+
   return (
     <Fragment>
       <PageProgress />
@@ -49,7 +53,7 @@ const BlogTwo: NextPage = () => {
           </div>
         </section>
 
-        <CTAJoin />
+        { !isLoggedIn && <CTAJoin />}
       </main>
 
       {/* ========== footer section ========== */}
