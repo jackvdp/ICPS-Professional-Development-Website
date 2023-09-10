@@ -1,15 +1,24 @@
 import { FC, FormEvent, Fragment, useState } from 'react';
 import NextLink from 'components/reuseable/links/NextLink';
+import { useAuth } from 'auth/AuthProvider';
 
 const LoginForm: FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [visiblePassword, setVisiblePassword] = useState(false);
+  const [failedToLogin, setFailedToLogin] = useState(false)
+  const { login } = useAuth()
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    console.log(email, password);
+    try {
+      await login(email, password)
+      setFailedToLogin(false)
+      const closeButton = document.querySelector('[data-bs-dismiss="modal"]') as HTMLButtonElement;
+      closeButton?.click();
+    } catch(error) {
+      setFailedToLogin(true)
+    }
   };
 
   return (
@@ -46,6 +55,12 @@ const LoginForm: FC = () => {
           <label htmlFor="loginPassword">Password</label>
         </div>
 
+        { failedToLogin && <p className="lead text-start ml-6" style={{ fontSize: '12px', color: 'red', paddingLeft: '20px' }}>
+          Incorrect username and/or password. Please try again.
+        </p>
+
+        }
+
         <button type="submit" className="btn btn-primary rounded-pill btn-login w-100 mb-2">
           Sign In
         </button>
@@ -58,22 +73,6 @@ const LoginForm: FC = () => {
       <p className="mb-0">
         Don&apos;t have an account? <NextLink title="Sign up" href="/register" className="hover" />
       </p>
-
-      <div className="divider-icon my-4">or</div>
-
-      <nav className="nav social justify-content-center text-center">
-        <a href="#" target="__blank" className="btn btn-circle btn-sm btn-google">
-          <i className="uil uil-google" />
-        </a>
-
-        <a href="#" target="__blank" className="btn btn-circle btn-sm btn-facebook-f">
-          <i className="uil uil-facebook-f" />
-        </a>
-
-        <a href="#" target="__blank" className="btn btn-circle btn-sm btn-twitter">
-          <i className="uil uil-twitter" />
-        </a>
-      </nav>
     </Fragment>
   );
 };

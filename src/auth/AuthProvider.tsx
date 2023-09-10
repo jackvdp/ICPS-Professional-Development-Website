@@ -29,17 +29,11 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   }, []);
 
   const login = async (username: string, password: string) => {
-    signInWithEmailAndPassword(auth, username, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        localStorage.setItem('username', username)
-        localStorage.setItem('password', password)
-        setIsLoggedIn(true)
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
+    const userCredential = await signInWithEmailAndPassword(auth, username, password)
+    const user = userCredential.user;
+    localStorage.setItem('username', username)
+    localStorage.setItem('password', password)
+    setIsLoggedIn(true)
   };
 
   const signup = async (email: string, password: string) => {

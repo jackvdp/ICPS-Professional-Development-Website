@@ -37,7 +37,7 @@ const NavbarICPS = () => {
             info
             social
             navClassName="navbar navbar-expand-lg center-nav"
-            button={<NextLink title="Join/Login" href="/join" className="btn btn-sm btn-primary rounded" />}
+            button={<NextLink title="Join" href="/join" className="btn btn-sm btn-primary rounded" />}
          />
         </header>
     )
@@ -103,16 +103,28 @@ const Navbar: FC<NavbarProps> = (props) => {
               </a>
             </li>
           )}
-
-          {/* ============= Join/Sign out button ============= */}
-          {!isLoggedIn && button ?
-          <li className="nav-item d-none d-md-block">{button}</li> :
-          <li className="nav-item" onClick={signout}>
-            <a className="nav-link" data-bs-toggle="offcanvas">
-              <i className="uil-user-circle" />
-            </a>
-          </li>
+          
+          {/* ============= Sign in/out button ============= */}
+          {
+            isLoggedIn ?
+            <li className="nav-item" onClick={signout}>
+              <a className="nav-link" data-bs-toggle="offcanvas">
+                <i className="uil-user-circle" />
+              </a>
+            </li> :
+            <li 
+            className="nav-item" 
+            data-bs-toggle="modal"
+            data-bs-target="#modal-signin"
+            >
+              <a className="nav-link">
+                <i className="uil-user-circle" />
+              </a>
+            </li>
           }
+
+           {/* ============= Join/Sign out button ============= */}
+           {!isLoggedIn && button && <li className="nav-item d-none d-md-block">{button}</li>}
 
           {/* ============= social icons link ============= */}
           {social && <Social />}

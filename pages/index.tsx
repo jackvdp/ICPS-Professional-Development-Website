@@ -5,10 +5,12 @@ import { Navbar } from 'components/blocks/navbar';
 import { Footer } from 'components/blocks/footer';
 import PageProgress from 'components/common/PageProgress';
 import { AboutMembers } from 'components/blocks/about';
-import { Contact } from 'components/blocks/contact';
 import { CTAJoin } from 'components/blocks/call-to-action';
+import { useAuth } from 'auth/AuthProvider';
 
 const ServicesTwo: NextPage = () => {
+
+  const { isLoggedIn } = useAuth()
 
   return (
     <Fragment>
@@ -38,7 +40,7 @@ const ServicesTwo: NextPage = () => {
             <AboutMembers />
         </div>
 
-        <CTAJoin />
+        {!isLoggedIn && <CTAJoin />}
         
       </main>
 
