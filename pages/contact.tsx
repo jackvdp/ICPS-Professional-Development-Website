@@ -105,6 +105,7 @@ const ContactPage: NextPage = () => {
             message={'Reach out to us from our contact form and we will get back to you shortly.'} 
             showMessage={true}
             sendButtonTitle='Send Message'
+            signUp={false}
             />
           </div>
         </div>

@@ -15,3 +15,11 @@ pnpm dev
 ```
 
 This will start the development server at http://localhost:3000, where you can view the website in your browser.
+
+## Check Build
+
+To check that Next JS can build the site run:
+
+```bash
+npm run build
+```

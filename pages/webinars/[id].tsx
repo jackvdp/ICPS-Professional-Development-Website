@@ -77,6 +77,7 @@ const BlogDetailsOne: NextPage<WebinarProp> = (props) => {
                 message='Complete the form below to sign up to this webinar.'
                 showMessage={false}
                 sendButtonTitle='Sign Up'
+                signUp={false}
               />
             )}
           </div>
