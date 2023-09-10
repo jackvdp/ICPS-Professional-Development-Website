@@ -1,6 +1,4 @@
 import { FC, FormEvent } from 'react';
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from 'utils/firebase';
 import { useAuth } from 'auth/AuthProvider';
 
 interface ContactFormProp {
@@ -11,43 +9,62 @@ interface ContactFormProp {
 
 const ContactForm: FC<ContactFormProp> = ({showMessage, sendButtonTitle, signUp}) => {
 
-  const { isLoggedIn, setIsLoggedIn, login } = useAuth()
+  const { login, signup } = useAuth()
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     if (signUp) {
-      const emailElement = document.getElementById("form_email") as HTMLInputElement;
-      const passwordElement = document.getElementById("form_password") as HTMLInputElement;
-      const retypePasswordElement = document.getElementById("form_retype_password") as HTMLInputElement;
-
-      if (emailElement && passwordElement && retypePasswordElement) {
-        const email = emailElement.value;
-        const password = passwordElement.value;
-        const retypePassword = retypePasswordElement.value;
-
-        if (password !== retypePassword) {
-          alert("Passwords do not match.");
-          return;
-        }
-
-        if (password.length < 8) {
-          alert("Password must have at least 8 characters.");
-          return;
-        }
-
-        try {
-          const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-          const user = userCredential.user
-          console.log("My user:", user)
-          setIsLoggedIn(true)
-        } catch (error) {
-          console.log("Error signing up:", error);
-          alert(`Error signing up. Please try again`);
-        }
-      }
+      signUpMethod()
+    } else if (showMessage) {
+      contactICPS()
+    } else {
+      signInMethod()
     }
   };
+
+  const signUpMethod = async () => {
+    const emailElement = document.getElementById("form_email") as HTMLInputElement;
+    const passwordElement = document.getElementById("form_password") as HTMLInputElement;
+    const retypePasswordElement = document.getElementById("form_retype_password") as HTMLInputElement;
+
+    if (emailElement && passwordElement && retypePasswordElement) {
+      const email = emailElement.value;
+      const password = passwordElement.value;
+      const retypePassword = retypePasswordElement.value;
+
+      if (password !== retypePassword) {
+        alert("Passwords do not match.");
+        return;
+      }
+
+      if (password.length < 8) {
+        alert("Password must have at least 8 characters.");
+        return;
+      }
+
+      try {
+        signup(email, password)
+      } catch (error) {
+        console.log("Error signing up:", error);
+        alert(`Error signing up. Please try again`);
+      }
+    }
+  } 
+
+  const signInMethod = async () => {
+    const emailElement = document.getElementById("form_email") as HTMLInputElement;
+    const passwordElement = document.getElementById("form_password") as HTMLInputElement;
+    if (emailElement && passwordElement) {
+      const email = emailElement.value;
+      const password = passwordElement.value;
+      login(email, password);
+    }
+  }
+
+  const contactICPS = async () => {
+    // Send email to ICPS
+  }
 
   return (
     <form className="contact-form needs-validation" method="post" onSubmit={handleSubmit}>

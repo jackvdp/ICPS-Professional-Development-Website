@@ -1,11 +1,13 @@
 import React, { createContext, useState, useEffect, useContext, ReactNode } from 'react';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from 'utils/firebase';
 
 interface AuthContextProps {
   isLoggedIn: boolean;
   setIsLoggedIn: (loggedIn: boolean) => void;
   login: (username: string, password: string) => Promise<void>;
+  signup: (username: string, password: string) => Promise<void>;
+  signout: () => void
 }
 
 const AuthContext = createContext<AuthContextProps | undefined>(undefined);
@@ -27,31 +29,35 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   }, []);
 
   const login = async (username: string, password: string) => {
-    try {
-      const res = await fetch('/api/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
+    signInWithEmailAndPassword(auth, username, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        localStorage.setItem('username', username)
+        localStorage.setItem('password', password)
+        setIsLoggedIn(true)
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
       });
-
-      if (res.ok) {
-        const data = await res.json();
-        localStorage.setItem('username', data.username);
-        localStorage.setItem('password', data.password);
-        setIsLoggedIn(true);
-      } else {
-        throw new Error('Failed to login');
-      }
-    } catch (error) {
-      console.error(error);
-      alert('Failed to login');
-    }
   };
 
+  const signup = async (email: string, password: string) => {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const _ = userCredential.user
+    localStorage.setItem('username', email)
+    localStorage.setItem('password', password)
+    setIsLoggedIn(true)
+  }
+
+  const signout = () => {
+    localStorage.removeItem('username')
+    localStorage.removeItem('password')
+    setIsLoggedIn(false)
+  }
+
   return (
-    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn, login }}>
+    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn, login, signup, signout }}>
       {children}
     </AuthContext.Provider>
   );

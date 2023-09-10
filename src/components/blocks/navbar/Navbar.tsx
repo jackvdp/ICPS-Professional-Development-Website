@@ -37,19 +37,19 @@ const NavbarICPS = () => {
             info
             social
             navClassName="navbar navbar-expand-lg center-nav"
-            button={<NextLink title="Join" href="/join" className="btn btn-sm btn-primary rounded" />}
+            button={<NextLink title="Join/Login" href="/join" className="btn btn-sm btn-primary rounded" />}
          />
         </header>
     )
 }
 
 const Navbar: FC<NavbarProps> = (props) => {
-  const { navClassName, info, search, social, button, cart, fancy, navOtherClass, stickyBox } =
+  const { navClassName, info, social, button, fancy, navOtherClass, stickyBox } =
     props;
 
   const sticky = useSticky(350);
   const navbarRef = useRef<HTMLElement | null>(null);
-  const { isLoggedIn, login } = useAuth()
+  const { isLoggedIn, signout } = useAuth()
 
   // dynamically render the logo
   const logo = 'ICPSLogo';
@@ -104,8 +104,15 @@ const Navbar: FC<NavbarProps> = (props) => {
             </li>
           )}
 
-          {/* ============= Join button ============= */}
-          {!isLoggedIn && button && <li className="nav-item d-none d-md-block">{button}</li>}
+          {/* ============= Join/Sign out button ============= */}
+          {!isLoggedIn && button ?
+          <li className="nav-item d-none d-md-block">{button}</li> :
+          <li className="nav-item" onClick={signout}>
+            <a className="nav-link" data-bs-toggle="offcanvas">
+              <i className="uil-user-circle" />
+            </a>
+          </li>
+          }
 
           {/* ============= social icons link ============= */}
           {social && <Social />}
