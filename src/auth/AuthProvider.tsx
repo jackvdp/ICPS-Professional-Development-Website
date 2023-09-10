@@ -1,7 +1,10 @@
 import React, { createContext, useState, useEffect, useContext, ReactNode } from 'react';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
 
 interface AuthContextProps {
   isLoggedIn: boolean;
+  setIsLoggedIn: (loggedIn: boolean) => void;
   login: (username: string, password: string) => Promise<void>;
 }
 
@@ -48,7 +51,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login }}>
+    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn, login }}>
       {children}
     </AuthContext.Provider>
   );

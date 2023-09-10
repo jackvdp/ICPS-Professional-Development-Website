@@ -1,7 +1,7 @@
 import ContactForm from "components/common/ContactForm"
 import { FC } from "react"
 
-const Contact: FC<ContactProp> = ({title, message, showMessage, sendButtonTitle}) => {
+const Contact: FC<ContactProp> = ({title, message, showMessage, sendButtonTitle, signUp}) => {
     return(
         <div className="row">
               <div className="col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
@@ -10,7 +10,7 @@ const Contact: FC<ContactProp> = ({title, message, showMessage, sendButtonTitle}
                   {message}
                 </p>
 
-                <ContactForm showMessage={showMessage} sendButtonTitle={sendButtonTitle}/>
+                <ContactForm showMessage={showMessage} sendButtonTitle={sendButtonTitle} signUp={signUp} />
               </div>
         </div>
     )
@@ -21,6 +21,7 @@ interface ContactProp {
     message: string
     showMessage: boolean
     sendButtonTitle: string
+    signUp: boolean
 }
 
 export default Contact

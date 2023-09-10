@@ -22,6 +22,7 @@ const ServicesTwo: NextPage = () => {
             message='Complete the form below to become a member of ICPS’s professional development network.'
             showMessage={false}
             sendButtonTitle='Sign Up'
+            signUp={true}
             />
         </div>
         

@@ -1,13 +1,56 @@
-import { FC } from 'react';
+import { FC, FormEvent } from 'react';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from 'utils/firebase';
+import { useAuth } from 'auth/AuthProvider';
 
 interface ContactFormProp {
   showMessage:boolean
   sendButtonTitle: string
+  signUp:boolean
 }
 
-const ContactForm: FC<ContactFormProp> = ({showMessage, sendButtonTitle}) => {
+const ContactForm: FC<ContactFormProp> = ({showMessage, sendButtonTitle, signUp}) => {
+
+  const { isLoggedIn, setIsLoggedIn, login } = useAuth()
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+
+    if (signUp) {
+      const emailElement = document.getElementById("form_email") as HTMLInputElement;
+      const passwordElement = document.getElementById("form_password") as HTMLInputElement;
+      const retypePasswordElement = document.getElementById("form_retype_password") as HTMLInputElement;
+
+      if (emailElement && passwordElement && retypePasswordElement) {
+        const email = emailElement.value;
+        const password = passwordElement.value;
+        const retypePassword = retypePasswordElement.value;
+
+        if (password !== retypePassword) {
+          alert("Passwords do not match.");
+          return;
+        }
+
+        if (password.length < 8) {
+          alert("Password must have at least 8 characters.");
+          return;
+        }
+
+        try {
+          const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+          const user = userCredential.user
+          console.log("My user:", user)
+          setIsLoggedIn(true)
+        } catch (error) {
+          console.log("Error signing up:", error);
+          alert(`Error signing up. Please try again`);
+        }
+      }
+    }
+  };
+
   return (
-    <form className="contact-form needs-validation" method="post">
+    <form className="contact-form needs-validation" method="post" onSubmit={handleSubmit}>
       <div className="messages"></div>
       <div className="row gx-4">
         <div className="col-md-6">
@@ -52,6 +95,32 @@ const ContactForm: FC<ContactFormProp> = ({showMessage, sendButtonTitle}) => {
                 <label htmlFor="form_phone">Phone *</label>
                 <div className="valid-feedback"> Looks good! </div>
                 <div className="invalid-feedback"> Please enter your phone. </div>
+              </div>
+            </div>
+          )
+        }
+
+        {
+          !showMessage && (
+            <div className="col-md-6">
+              <div className="form-floating mb-4">
+                <input required type="password" name="Job title" placeholder="01234567891" id="form_password" className="form-control" />
+                <label htmlFor="form_phone">Password *</label>
+                <div className="valid-feedback"> Looks good! </div>
+                <div className="invalid-feedback"> Please enter your password. </div>
+              </div>
+            </div>
+          )
+        }
+        
+        {
+          !showMessage && (
+            <div className="col-md-6">
+              <div className="form-floating mb-4">
+                <input required type="password" name="Job title" placeholder="01234567891" id="form_retype_password" className="form-control" />
+                <label htmlFor="form_phone">Re-type Password *</label>
+                <div className="valid-feedback"> Looks good! </div>
+                <div className="invalid-feedback"> Please re-type your password. </div>
               </div>
             </div>
           )
