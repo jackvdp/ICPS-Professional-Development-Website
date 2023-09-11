@@ -40,7 +40,7 @@ header {
       .logo-dark {
         display: inline-block;
       }
-      .btn:not(.btn-expand) {
+      .btn:not(.btn-expand):not(.my-custom-btn) {
         background: $main-color;
         border-color: $main-color;
         color: $white;

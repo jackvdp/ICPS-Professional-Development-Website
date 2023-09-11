@@ -111,12 +111,12 @@ const Navbar: FC<NavbarProps> = (props) => {
           {
             isLoggedIn ?
             <button 
-            className="btn btn-sm btn-outline-secondary" 
+            className="btn btn-sm btn-outline-secondary my-custom-btn" 
             onClick={signout}>
               Sign Out
             </button> :
             <button 
-            className="btn btn-sm btn-outline-secondary" 
+            className="btn btn-sm btn-outline-secondary my-custom-btn" 
             data-bs-toggle="modal"
             data-bs-target="#modal-signin">
               Sign In
