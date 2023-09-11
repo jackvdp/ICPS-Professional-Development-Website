@@ -103,20 +103,20 @@ const Navbar: FC<NavbarProps> = (props) => {
             </li>
           )}
 
-          {/* ============= Join/Sign out button ============= */}
-          {!isLoggedIn && button && <li className="nav-item d-none d-md-block">{button}</li>}
+          {/* ============= Join button ============= */}
+          {!isLoggedIn && button && <li className="nav-item">{button}</li>}
           
           {/* ============= Sign in/out button ============= */}
-          <li className="nav-item d-none d-md-block">
+          <li className="nav-item">
           {
             isLoggedIn ?
             <button 
-            className="btn btn-sm btn-outline-secondary rounded" 
+            className="btn btn-sm btn-outline-secondary" 
             onClick={signout}>
               Sign Out
             </button> :
             <button 
-            className="btn btn-sm btn-outline-secondary rounded" 
+            className="btn btn-sm btn-outline-secondary" 
             data-bs-toggle="modal"
             data-bs-target="#modal-signin">
               Sign In
