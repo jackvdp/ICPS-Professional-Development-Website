@@ -63,8 +63,52 @@ const ContactForm: FC<ContactFormProp> = ({showMessage, sendButtonTitle, signUp}
   }
 
   const contactICPS = async () => {
-    // Send email to ICPS
-  }
+    const emailElement = document.getElementById("form_email") as HTMLInputElement;
+    const nameElement = document.getElementById("form_name") as HTMLInputElement;
+    const lastNameElement = document.getElementById("form_lastname") as HTMLInputElement;
+    const messageElement = document.getElementById("form_message") as HTMLTextAreaElement;
+    const organisationElement = document.getElementById("form_organisation") as HTMLTextAreaElement;
+  
+    if (emailElement && nameElement && lastNameElement && messageElement && organisationElement) {
+      const email = emailElement.value;
+      const name = nameElement.value;
+      const lastName = lastNameElement.value;
+      const organisation = organisationElement.value;
+      const message = messageElement.value;
+  
+      const fullMessage = `
+        Name: ${name}
+        Last Name: ${lastName}
+        Email: ${email}
+        organisation: ${organisation}
+        Message: ${message}
+      `;
+  
+      try {
+        const response = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ message: fullMessage }),
+        });
+  
+        if (response.ok) {
+          alert('Message sent successfully. We will be in contact in due course.');
+          emailElement.value = '';
+          nameElement.value  = '';
+          lastNameElement.value  = '';
+          organisationElement.value  = '';
+          messageElement.value  = '';
+        } else {
+          const data = await response.json();
+          alert(`Failed to send email: ${data.message}`);
+        }
+      } catch (error) {
+        console.error('There was an error sending the email', error);
+      }
+    }
+  };
 
   return (
     <form className="contact-form needs-validation" method="post" onSubmit={handleSubmit}>
@@ -158,7 +202,7 @@ const ContactForm: FC<ContactFormProp> = ({showMessage, sendButtonTitle, signUp}
 
         <div className="col-md-6">
           <div className="form-floating mb-4">
-            <input required type="text" name="surname" placeholder="Doe" id="form_lastname" className="form-control" />
+            <input required type="text" name="surname" placeholder="Doe" id="form_organisation" className="form-control" />
             <label htmlFor="form_lastname">Organisation *</label>
             <div className="valid-feedback"> Looks good! </div>
             <div className="invalid-feedback"> Please enter your organsiation. </div>
