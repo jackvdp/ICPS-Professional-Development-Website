@@ -11,6 +11,16 @@ const Contact: FC<ContactProp> = ({title, message, showMessage, sendButtonTitle,
             </p>
 
             <ContactForm showMessage={showMessage} sendButtonTitle={sendButtonTitle} signUp={signUp} />
+
+            <p className="lead text-center mt-10 mb-5">
+              Already a member? Please <a 
+              href="/signin" 
+              data-bs-toggle="modal"
+              data-bs-target="#modal-signin">
+                Sign In
+              </a>.
+            </p>
+
           </div>
         </div>
     )
