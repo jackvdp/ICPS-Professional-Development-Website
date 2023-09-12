@@ -21,23 +21,24 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
   useEffect(() => {
-    const alreadyRan = sessionStorage.getItem('alreadyRan');
     const username = localStorage.getItem('username');
     const password = localStorage.getItem('password');
 
-    if (username && password && !isLoggedIn && !alreadyRan) {
+    if (username && password && !isLoggedIn) {
       login(username, password);
     }
-
-    sessionStorage.setItem('alreadyRan', 'true');
   }, []);
 
   const login = async (username: string, password: string) => {
-    const userCredential = await signInWithEmailAndPassword(auth, username, password)
-    const user = userCredential.user;
-    localStorage.setItem('username', username)
-    localStorage.setItem('password', password)
-    setIsLoggedIn(true)
+    try {
+      await signInWithEmailAndPassword(auth, username, password)
+      localStorage.setItem('username', username)
+      localStorage.setItem('password', password)
+      setIsLoggedIn(true)
+    } catch {
+      localStorage.setItem('username', "")
+      localStorage.setItem('password', "")
+    }
   };
 
   const signup = async (
