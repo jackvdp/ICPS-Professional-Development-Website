@@ -1,12 +1,13 @@
 import React, { createContext, useState, useEffect, useContext, ReactNode } from 'react';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from 'utils/firebase';
+import { auth, db } from 'utils/firebase';
+import { doc, setDoc } from "firebase/firestore";
 
 interface AuthContextProps {
   isLoggedIn: boolean;
   setIsLoggedIn: (loggedIn: boolean) => void;
   login: (username: string, password: string) => Promise<void>;
-  signup: (username: string, password: string) => Promise<void>;
+  signup: (email: string, password: string, firstName: string, lastName: string, phone: string, organisation: string, role: string) => Promise<void>
   signout: () => void
 }
 
@@ -20,12 +21,15 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
   useEffect(() => {
+    const alreadyRan = sessionStorage.getItem('alreadyRan');
     const username = localStorage.getItem('username');
     const password = localStorage.getItem('password');
 
-    if (username && password) {
-      setIsLoggedIn(true);
+    if (username && password && !isLoggedIn && !alreadyRan) {
+      login(username, password);
     }
+
+    sessionStorage.setItem('alreadyRan', 'true');
   }, []);
 
   const login = async (username: string, password: string) => {
@@ -36,9 +40,19 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     setIsLoggedIn(true)
   };
 
-  const signup = async (email: string, password: string) => {
+  const signup = async (
+    email: string, 
+    password: string, 
+    firstName: string,
+    lastName: string,
+    phone: string, 
+    organisation: string,
+    role: string
+  ) => {
+
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    const _ = userCredential.user
+    const user = userCredential.user
+    storeUser(user.uid, firstName, lastName, email, phone, organisation, role)
     localStorage.setItem('username', email)
     localStorage.setItem('password', password)
     setIsLoggedIn(true)
@@ -48,6 +62,32 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     localStorage.removeItem('username')
     localStorage.removeItem('password')
     setIsLoggedIn(false)
+  }
+
+  const storeUser = async (
+    userID: string,
+    firstName: string,
+    lastName: string,
+    email: string,
+    phone: string, 
+    organisation: string,
+    role: string
+  ) => {
+
+    try {
+      const docRef = await setDoc(doc(db, "users", userID), {
+        name: firstName + " " + lastName,
+        userID: userID,
+        email: email,
+        phone: phone,
+        organisation: organisation,
+        role: role
+      })
+      console.log("Document written with ID: ", docRef);
+    } catch(error) {
+      console.error("Error adding document: ", error);
+    }
+
   }
 
   return (

@@ -27,11 +27,21 @@ const ContactForm: FC<ContactFormProp> = ({showMessage, sendButtonTitle, signUp}
     const emailElement = document.getElementById("form_email") as HTMLInputElement;
     const passwordElement = document.getElementById("form_password") as HTMLInputElement;
     const retypePasswordElement = document.getElementById("form_retype_password") as HTMLInputElement;
+    const nameElement = document.getElementById("form_name") as HTMLInputElement;
+    const lastNameElement = document.getElementById("form_lastname") as HTMLInputElement;
+    const organisationElement = document.getElementById("form_organisation") as HTMLTextAreaElement;
+    const phoneElement = document.getElementById("form_phone") as HTMLTextAreaElement;
+    const roleElement = document.getElementById("form_jobtitle") as HTMLTextAreaElement;
 
-    if (emailElement && passwordElement && retypePasswordElement) {
+    if (emailElement && passwordElement && retypePasswordElement && nameElement && lastNameElement && organisationElement && phoneElement && roleElement) {
       const email = emailElement.value;
       const password = passwordElement.value;
       const retypePassword = retypePasswordElement.value;
+      const name = nameElement.value
+      const lastName = lastNameElement.value
+      const organisation = organisationElement.value;
+      const phone = phoneElement.value;
+      const role = roleElement.value;
 
       if (password !== retypePassword) {
         alert("Passwords do not match.");
@@ -44,7 +54,7 @@ const ContactForm: FC<ContactFormProp> = ({showMessage, sendButtonTitle, signUp}
       }
 
       try {
-        signup(email, password)
+        signup(email, password, name, lastName, phone, organisation, role)
       } catch (error) {
         console.log("Error signing up:", error);
         alert(`Error signing up. Please try again`);
@@ -152,7 +162,7 @@ const ContactForm: FC<ContactFormProp> = ({showMessage, sendButtonTitle, signUp}
           !showMessage && (
             <div className="col-md-6">
               <div className="form-floating mb-4">
-                <input required type="tel" name="Job title" placeholder="01234567891" id="form_phone" className="form-control" />
+                <input required type="tel" name="Phonee" placeholder="01234567891" id="form_phone" className="form-control" />
                 <label htmlFor="form_phone">Phone *</label>
                 <div className="valid-feedback"> Looks good! </div>
                 <div className="invalid-feedback"> Please enter your phone. </div>
@@ -165,7 +175,7 @@ const ContactForm: FC<ContactFormProp> = ({showMessage, sendButtonTitle, signUp}
           !showMessage && (
             <div className="col-md-6">
               <div className="form-floating mb-4">
-                <input required type="password" name="Job title" placeholder="01234567891" id="form_password" className="form-control" />
+                <input required type="password" name="Password" placeholder="01234567891" id="form_password" className="form-control" />
                 <label htmlFor="form_phone">Password *</label>
                 <div className="valid-feedback"> Looks good! </div>
                 <div className="invalid-feedback"> Please enter your password. </div>
@@ -178,7 +188,7 @@ const ContactForm: FC<ContactFormProp> = ({showMessage, sendButtonTitle, signUp}
           !showMessage && (
             <div className="col-md-6">
               <div className="form-floating mb-4">
-                <input required type="password" name="Job title" placeholder="01234567891" id="form_retype_password" className="form-control" />
+                <input required type="password" name="RetypePassword" placeholder="01234567891" id="form_retype_password" className="form-control" />
                 <label htmlFor="form_phone">Re-type Password *</label>
                 <div className="valid-feedback"> Looks good! </div>
                 <div className="invalid-feedback"> Please re-type your password. </div>
