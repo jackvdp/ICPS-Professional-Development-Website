@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import { Navbar } from 'components/blocks/navbar';
@@ -9,6 +9,8 @@ import NextLink from 'components/reuseable/links/NextLink';
 import BlogDetailsTemplate from 'components/blocks/article/ArticleDetails';
 import getArticle from 'data/articles/getArticles';
 import articles from 'data/articles/articles';
+import { useRouter } from 'next/router';
+import { useAuth } from 'auth/AuthProvider';
 
 export interface ArticleProps {
     id: string;
@@ -26,6 +28,16 @@ interface Params extends ParsedUrlQuery {
 }
 
 const BlogDetailsOne: NextPage<ArticleProps> = (props) => {
+
+  const router = useRouter()
+  const { isLoggedIn } = useAuth()
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      router.push('/join-to-access');
+    }
+  }, [isLoggedIn]);
+
   return (
     <Fragment>
       <PageProgress />

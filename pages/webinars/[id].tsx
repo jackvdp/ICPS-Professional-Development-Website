@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import { Navbar } from 'components/blocks/navbar';
@@ -11,12 +11,24 @@ import { WebinarProp } from '.';
 import getWebinar from 'data/webinars/getWebinars';
 import { Contact } from 'components/blocks/contact';
 import webinars from 'data/webinars/webinars';
+import { useRouter } from 'next/router';
+import { useAuth } from 'auth/AuthProvider';
 
 interface Params extends ParsedUrlQuery {
   id: string;
 }
 
 const BlogDetailsOne: NextPage<WebinarProp> = (props) => {
+
+  const router = useRouter();
+  const { isLoggedIn } = useAuth()
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      router.push('/join-to-access');
+    }
+  }, [isLoggedIn]);
+
   return (
     <Fragment>
       <PageProgress />
