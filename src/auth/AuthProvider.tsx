@@ -1,95 +1,137 @@
 import React, { createContext, useState, useEffect, useContext, ReactNode } from 'react';
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
-import { auth, db } from 'utils/firebase';
-import { doc, setDoc } from "firebase/firestore";
+import jwtDecode from 'jwt-decode';
 
-interface AuthContextProps {
-  isLoggedIn: boolean;
-  setIsLoggedIn: (loggedIn: boolean) => void;
-  login: (username: string, password: string) => Promise<void>;
-  signup: (email: string, password: string, firstName: string, lastName: string, phone: string, organisation: string, role: string) => Promise<void>
-  signout: () => void
+interface DecodedToken {
+  exp: number;
 }
-
-const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
 interface AuthProviderProps {
   children: ReactNode;
 }
 
+const tokenStorageKey = 'token'
+const refreshTokenStorageKey = 'refresh_token'
+const baseURL = 'https://icpsknowledgenetwork.com/api'
+
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
   useEffect(() => {
-    const username = localStorage.getItem('username');
-    const password = localStorage.getItem('password');
+    const token = localStorage.getItem(tokenStorageKey);
+    const refreshToken = localStorage.getItem(refreshTokenStorageKey);
 
-    if (username && password && !isLoggedIn) {
-      login(username, password);
+    if (token && refreshToken) {
+      const decoded: DecodedToken = jwtDecode(token);
+      const currentTime = Date.now() / 1000;
+
+      if (decoded.exp < currentTime) {
+        refreshTokens();
+      } else {
+        setIsLoggedIn(true);
+
+        const timeoutId = setTimeout(() => {
+          refreshTokens();
+        }, (decoded.exp - currentTime - 60) * 1000);
+
+        return () => clearTimeout(timeoutId);  // Clear the timer when the component unmounts
+      }
     }
   }, []);
 
   const login = async (username: string, password: string) => {
     try {
-      await signInWithEmailAndPassword(auth, username, password)
-      localStorage.setItem('username', username)
-      localStorage.setItem('password', password)
-      setIsLoggedIn(true)
-    } catch {
-      localStorage.setItem('username', "")
-      localStorage.setItem('password', "")
+      const response = await fetch(`${baseURL}/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username,
+          password,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        const { token, refresh_token } = data;
+
+        localStorage.setItem(tokenStorageKey, token);
+        localStorage.setItem(refreshTokenStorageKey, refresh_token);
+
+        setIsLoggedIn(true);
+      } else {
+        signout();
+      }
+    } catch (error) {
+      console.log(error)
+      signout();
     }
   };
 
   const signup = async (
-    email: string, 
-    password: string, 
+    email: string,
+    password: string,
     firstName: string,
     lastName: string,
-    phone: string, 
+    phone: string,
     organisation: string,
     role: string
   ) => {
+    try {
+      const response = await fetch(`${baseURL}/users/register`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstname: firstName,
+          lastname: lastName,
+          email,
+          password,
+          phone,
+          organisation,
+          position: role,
+          // Fields not provided are left blank
+          country: "",
+          birthdate: "",
+          profileName: "",
+          profileTitle: "",
+          isNewsletterSubscribe: true,
+          isProfileRestricted: true,
+          interests: [],
+          skills: [],
+          biography: "",
+          profileImage: ""
+        }),
+      });
 
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    const user = userCredential.user
-    storeUser(user.uid, firstName, lastName, email, phone, organisation, role)
-    localStorage.setItem('username', email)
-    localStorage.setItem('password', password)
-    setIsLoggedIn(true)
-  }
+      if (response.ok) {
+        const data = await response.json();
+        const { token, refreshToken } = data;
+
+        localStorage.setItem(tokenStorageKey, token);
+        localStorage.setItem(refreshTokenStorageKey, refreshToken);
+
+        setIsLoggedIn(true);
+      } else {
+        signout()
+      }
+    } catch (error) {
+      signout()
+    }
+  };
 
   const signout = () => {
-    localStorage.removeItem('username')
-    localStorage.removeItem('password')
-    setIsLoggedIn(false)
-  }
+    localStorage.removeItem(tokenStorageKey);
+    localStorage.removeItem(refreshTokenStorageKey);
+    setIsLoggedIn(false);
+  };
 
-  const storeUser = async (
-    userID: string,
-    firstName: string,
-    lastName: string,
-    email: string,
-    phone: string, 
-    organisation: string,
-    role: string
-  ) => {
-
-    try {
-      const docRef = await setDoc(doc(db, "users", userID), {
-        name: firstName + " " + lastName,
-        userID: userID,
-        email: email,
-        phone: phone,
-        organisation: organisation,
-        role: role
-      })
-      console.log("Document written with ID: ", docRef);
-    } catch(error) {
-      console.error("Error adding document: ", error);
-    }
-
-  }
+  const refreshTokens = async () => {
+    // Implement the logic to refresh the token using the refresh token
+    // Update localStorage with the new token and refresh token
+    // Update the isLoggedIn state if necessary
+  };
 
   return (
     <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn, login, signup, signout }}>
@@ -98,7 +140,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   );
 };
 
-// Custom hook to use the auth context
+/****************************************
+ * MARK: Custom Hook to use the auth context
+ ****************************************/
+
 export const useAuth = (): AuthContextProps => {
   const context = useContext(AuthContext);
   if (!context) {
@@ -106,3 +151,13 @@ export const useAuth = (): AuthContextProps => {
   }
   return context;
 };
+
+interface AuthContextProps {
+  isLoggedIn: boolean;
+  setIsLoggedIn: (loggedIn: boolean) => void;
+  login: (username: string, password: string) => Promise<void>;
+  signup: (email: string, password: string, firstName: string, lastName: string, phone: string, organisation: string, role: string) => Promise<void>;
+  signout: () => void;
+}
+
+const AuthContext = createContext<AuthContextProps | undefined>(undefined);

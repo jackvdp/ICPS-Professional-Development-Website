@@ -20,6 +20,7 @@
     "glightbox": "^3.2.0",
     "isotope-layout": "^3.0.6",
     "itooltip": "^1.1.1",
+    "jwt-decode": "^3.1.2",
     "next": "^12.2.4-canary.9",
     "plyr-react": "^5.1.0",
     "progressbar.js": "^1.1.0",
