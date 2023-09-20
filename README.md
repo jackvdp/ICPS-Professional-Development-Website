@@ -16,6 +16,10 @@ pnpm dev
 
 This will start the development server at http://localhost:3000, where you can view the website in your browser.
 
+## UI Template Documentation
+
+Website was built using Sandbox UI template. Documentation for this can be found: https://sandbox-react.netlify.app/docs/
+
 ## Check Build
 
 To check that Next JS can build the site run:
