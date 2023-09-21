@@ -48,7 +48,7 @@ const Navbar: FC<NavbarProps> = (props) => {
 
   const sticky = useSticky(350);
   const navbarRef = useRef<HTMLElement | null>(null);
-  const { isLoggedIn, signout } = useAuth()
+  const { isLoggedIn } = useAuth()
 
   // dynamically render the logo
   const logo = 'ICPSLogo';
@@ -110,11 +110,10 @@ const Navbar: FC<NavbarProps> = (props) => {
           <li className="nav-item">
           {
             isLoggedIn ?
-            <button 
+            <NextLink 
+            title="Account"
             className="btn btn-sm btn-outline-secondary my-custom-btn" 
-            onClick={signout}>
-              Sign Out
-            </button> :
+            href='/account' /> :
             <button 
             className="btn btn-sm btn-outline-secondary my-custom-btn" 
             data-bs-toggle="modal"

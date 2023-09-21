@@ -30,13 +30,13 @@ interface Params extends ParsedUrlQuery {
 const BlogDetailsOne: NextPage<ArticleProps> = (props) => {
 
   const router = useRouter()
-  const { isLoggedIn } = useAuth()
+  const { isLoggedIn, isLoadingLogInInfo } = useAuth()
 
   useEffect(() => {
-    if (!isLoggedIn) {
+    if (!isLoggedIn && !isLoadingLogInInfo) {
       router.push('/join-to-access');
     }
-  }, [isLoggedIn]);
+}, [isLoggedIn, isLoadingLogInInfo]);
 
   return (
     <Fragment>

@@ -15,6 +15,7 @@ const baseURL = 'https://icpsknowledgenetwork.com/api'
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [isLoadingLogInInfo, setIsLoadingLogInInfo] = useState<boolean>(true);
 
   useEffect(() => {
     const token = localStorage.getItem(tokenStorageKey);
@@ -36,6 +37,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         return () => clearTimeout(timeoutId);  // Clear the timer when the component unmounts
       }
     }
+    setIsLoadingLogInInfo(false)
   }, []);
 
   const login = async (username: string, password: string) => {
@@ -134,7 +136,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn, login, signup, signout }}>
+    <AuthContext.Provider value={{ isLoggedIn, isLoadingLogInInfo, setIsLoggedIn, login, signup, signout }}>
       {children}
     </AuthContext.Provider>
   );
@@ -155,6 +157,7 @@ export const useAuth = (): AuthContextProps => {
 interface AuthContextProps {
   isLoggedIn: boolean;
   setIsLoggedIn: (loggedIn: boolean) => void;
+  isLoadingLogInInfo: boolean;
   login: (username: string, password: string) => Promise<void>;
   signup: (email: string, password: string, firstName: string, lastName: string, phone: string, organisation: string, role: string) => Promise<void>;
   signout: () => void;
