@@ -33,6 +33,11 @@ const Account: NextPage = () => {
         }
     }, [isLoggedIn, isLoadingLogInInfo]);
 
+    const signOutClicked = () => {
+        router.push('/');
+        signout()
+    }
+
     return (
         <Fragment>
             <PageProgress />
@@ -71,7 +76,7 @@ const Account: NextPage = () => {
                             )}
                             <button
                                 className="btn btn-sm btn-outline-red my-custom-btn"
-                                onClick={signout}>Sign Out
+                                onClick={signOutClicked}>Sign Out
                             </button>
                         </div>
 
