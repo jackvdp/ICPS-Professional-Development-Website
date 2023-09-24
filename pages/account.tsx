@@ -6,8 +6,6 @@ import { Footer } from 'components/blocks/footer';
 import PageProgress from 'components/common/PageProgress';
 import { useRouter } from 'next/router';
 import { useAuth } from 'auth/AuthProvider';
-import NextLink from 'components/reuseable/links/NextLink';
-import { sign } from 'crypto';
 
 const Account: NextPage = () => {
 
@@ -16,11 +14,9 @@ const Account: NextPage = () => {
     const [user, setUser] = useState<User | null>(null);
 
     useEffect(() => {
-        console.log("Getting user")
         if (!isLoggedIn && !isLoadingLogInInfo) {
             router.push('/join-to-access');
         } else if (isLoggedIn) {
-            console.log("Getting user data")
             const token = localStorage.getItem('token');
             fetch(`https://icpsknowledgenetwork.com/api/users/me`, {
                 headers: {
@@ -79,10 +75,9 @@ const Account: NextPage = () => {
                                 onClick={signOutClicked}>Sign Out
                             </button>
                         </div>
-
                     </div>
-
                 </div>
+                
             </main>
 
             {/* ========== footer section ========== */}
