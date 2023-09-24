@@ -21,13 +21,7 @@ interface Params extends ParsedUrlQuery {
 const BlogDetailsOne: NextPage<WebinarProp> = (props) => {
 
   const router = useRouter();
-  const { isLoggedIn, isLoadingLogInInfo } = useAuth()
-
-  useEffect(() => {
-    if (!isLoggedIn && !isLoadingLogInInfo) {
-      router.push('/join-to-access');
-    }
-  }, [isLoggedIn, isLoadingLogInInfo]);
+  const { isLoggedIn } = useAuth()
 
   return (
     <Fragment>
@@ -82,7 +76,8 @@ const BlogDetailsOne: NextPage<WebinarProp> = (props) => {
             </div>
           </div>
 
-          <div className="container pb-14 pb-md-16">
+          {
+            !isLoggedIn && <div className="container pb-14 pb-md-16">
             { (Date.parse(props.date) >= Date.now()) && (
               <Contact
                 title='Sign up to the webinar' 
@@ -93,6 +88,8 @@ const BlogDetailsOne: NextPage<WebinarProp> = (props) => {
               />
             )}
           </div>
+          }
+
         </section>
       </main>
 

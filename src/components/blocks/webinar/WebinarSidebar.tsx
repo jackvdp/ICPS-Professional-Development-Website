@@ -9,56 +9,66 @@ import webinars from 'data/webinars/webinars';
 import { WebinarProp } from '../../../../pages/webinars';
 
 const BlogSidebar: FC = () => {
+
+  const upcomingWebinars = webinars
+    .filter(({ date }) => new Date(date) >= new Date())
+  const previousWebinars = webinars
+    .filter(({ date }) => new Date(date) < new Date())
+
   return (
     <Fragment>
 
       {/* ========== Upcoming Webinars ========== */}
-      <div className="widget">
-        <h4 className="widget-title mb-3">Upcoming Webinars</h4>
+      {
+        upcomingWebinars.length != 0 &&
+        <div className="widget">
+          <h4 className="widget-title mb-3">Upcoming Webinars</h4>
 
-        <ul className="image-list">
-          {webinars
-          .filter(({ date }) => new Date(date) >= new Date())
-          .map(({ id, time, title, image, date, description, subtitle, learning, youtubeVideo}) => (
-            <Webinar 
-            key={id}
-            id={id}
-            time={time}
-            title={title}
-            image={image}
-            date={date}
-            subtitle={subtitle}
-            description={description}
-            learning={learning}
-            youtubeVideo={youtubeVideo}
-            />
-          ))}
-        </ul>
-      </div>
+          <ul className="image-list">
+            {upcomingWebinars
+              .map(({ id, time, title, image, date, description, subtitle, learning, youtubeVideo }) => (
+                <Webinar
+                  key={id}
+                  id={id}
+                  time={time}
+                  title={title}
+                  image={image}
+                  date={date}
+                  subtitle={subtitle}
+                  description={description}
+                  learning={learning}
+                  youtubeVideo={youtubeVideo}
+                />
+              ))}
+          </ul>
+        </div>
+      }
 
       {/* ========== Previous webinars ========== */}
-      <div className="widget">
-        <h4 className="widget-title mb-3">Previous Webinars</h4>
+      {
+        previousWebinars.length != 0 &&
+        <div className="widget">
+          <h4 className="widget-title mb-3">Previous Webinars</h4>
 
-        <ul className="image-list">
-          {webinars
-          .filter(({ date }) => new Date(date) < new Date())
-          .map(({ id, time, title, image, date, description, subtitle, learning, youtubeVideo }) => (
-            <Webinar 
-            key={id}
-            id={id}
-            time={time}
-            title={title}
-            image={image}
-            date={date}
-            subtitle={subtitle}
-            description={description}
-            learning={learning}
-            youtubeVideo={youtubeVideo}
-            />
-          ))}
-        </ul>
-      </div>
+          <ul className="image-list">
+            {previousWebinars
+              .map(({ id, time, title, image, date, description, subtitle, learning, youtubeVideo }) => (
+                <Webinar
+                  key={id}
+                  id={id}
+                  time={time}
+                  title={title}
+                  image={image}
+                  date={date}
+                  subtitle={subtitle}
+                  description={description}
+                  learning={learning}
+                  youtubeVideo={youtubeVideo}
+                />
+              ))}
+          </ul>
+        </div>
+      }
 
     </Fragment>
   );
@@ -70,7 +80,7 @@ const Webinar: FC<WebinarProp> = ({ id, time, title, image, date }) => {
 
   const link = '/webinars/' + id
 
-  return(
+  return (
     <li key={id}>
       <NextLink title={<FigureImage width={100} height={100} className="rounded" src={image} />} href={link} />
 
