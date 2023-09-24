@@ -63,10 +63,12 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         setIsLoggedIn(true);
       } else {
         signout();
+        throw new Error('Login failed');
       }
     } catch (error) {
       console.log(error)
       signout();
+      throw error;
     }
   };
 

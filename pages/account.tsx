@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import { Fragment, useEffect, FormEvent, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 // -------- custom component -------- //
 import { Navbar } from 'components/blocks/navbar';
 import { Footer } from 'components/blocks/footer';
