@@ -16,7 +16,7 @@ const LoginForm: FC = () => {
       setFailedToLogin(false)
       const closeButton = document.querySelector('[data-bs-dismiss="modal"]') as HTMLButtonElement;
       closeButton?.click();
-    } catch(error) {
+    } catch (error) {
       setFailedToLogin(true)
     }
   };
@@ -55,7 +55,7 @@ const LoginForm: FC = () => {
           <label htmlFor="loginPassword">Password</label>
         </div>
 
-        { failedToLogin && <p className="lead text-start ml-6" style={{ fontSize: '12px', color: 'red', paddingLeft: '20px' }}>
+        {failedToLogin && <p className="lead text-start ml-6" style={{ fontSize: '12px', color: 'red', paddingLeft: '20px' }}>
           Incorrect username and/or password. Please try again.
         </p>
 
@@ -71,7 +71,7 @@ const LoginForm: FC = () => {
       </p>
 
       <p className="mb-0">
-        Don&apos;t have an account? <NextLink title="Sign up" href="/register" className="hover" />
+        Don&apos;t have an account? <NextLink title="Sign up" href="/join" className="hover" />
       </p>
     </Fragment>
   );
