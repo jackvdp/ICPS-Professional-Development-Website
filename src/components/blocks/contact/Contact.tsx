@@ -1,6 +1,7 @@
 import ContactForm from "components/common/ContactForm"
 import { FC } from "react"
 import { useAuth } from "auth/AuthProvider"
+import Link from "next/link"
 
 const Contact: FC<ContactProp> = ({ title, message, showMessage, sendButtonTitle, signUp }) => {
 
@@ -19,12 +20,12 @@ const Contact: FC<ContactProp> = ({ title, message, showMessage, sendButtonTitle
         {
           isLoggedIn &&
           <p className="lead text-center mt-10 mb-5">
-            Already a member? Please <a
+            Already a member? Please <Link
               href="/signin"
               data-bs-toggle="modal"
-              data-bs-target="#modal-signin">
-              Sign In
-            </a>.
+              data-bs-target="#modal-signin"
+              title= "Sign In"
+            />.
           </p>
         }
 

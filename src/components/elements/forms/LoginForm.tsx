@@ -1,6 +1,7 @@
 import { FC, FormEvent, Fragment, useState } from 'react';
 import NextLink from 'components/reuseable/links/NextLink';
 import { useAuth } from 'auth/AuthProvider';
+import { useRouter } from 'next/router';
 
 const LoginForm: FC = () => {
   const [email, setEmail] = useState('');
@@ -8,6 +9,7 @@ const LoginForm: FC = () => {
   const [visiblePassword, setVisiblePassword] = useState(false);
   const [failedToLogin, setFailedToLogin] = useState(false)
   const { login } = useAuth()
+  const router = useRouter();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -19,6 +21,10 @@ const LoginForm: FC = () => {
     } catch (error) {
       setFailedToLogin(true)
     }
+  };
+
+  const handleNavigate = () => {
+    router.push('/join');
   };
 
   return (
@@ -71,7 +77,7 @@ const LoginForm: FC = () => {
       </p>
 
       <p className="mb-0">
-        Don&apos;t have an account? <NextLink title="Sign up" href="/join" className="hover" />
+        Don&apos;t have an account? <a className="hover" onClick={handleNavigate} data-bs-dismiss="modal">Sign up</a>
       </p>
     </Fragment>
   );
