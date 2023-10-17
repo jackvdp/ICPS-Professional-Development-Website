@@ -301,7 +301,75 @@ const articles = [
 <p>Tracy concluded “We have already successfully delivered several pilots of the ICPS Hybrid approach and feedback has been excellent and we are now capable of delivering a Hybrid approach for our entire open course schedule. And additionally, are able to deliver a Hybrid approach for organisations who want courses specifically developed for groups of learners”</p>
 <p>For more information contact Tracy Capaldi-Drewett at tracy.drewett@parlicentre.co.uk.</p>
 `
-    }
+    },
+    {
+      id: "9",
+      link: 'articles/9',
+      category: 'Consultancy',
+      image: '/img/articles/consultancy1.jpeg',
+      title: "ICPS Public Service Consultancy Services",
+      description: "Public service organisations are key to societal progress and well-being. Today, however, they are challenged by rapid changes, grappling with global instability and tough economic choices.",
+      date: '17 Oct 2023', 
+      content: `
+<p><strong>Public service organisations</strong> are key to societal progress and well-being. Today, however, they are challenged by rapid changes, grappling with global instability and tough economic choices. Public service organisations around the world are under increasing pressure to deliver more for their citizens, from seamless public services to new policies that address complex social and economic challenges. Yet, it is often found that the systems, structures, and processes of these organisations are not set up to respond to the complex challenges they are facing. The <strong>International Centre for Parliamentary Studies (ICPS)</strong> offers consulting services to help the public service meet and surpass these expectations. If you are a public service organisation, wanting to keep pace with the changes, we can help you innovate, transform and work smarter, to enhance services, improve outcomes and achieve more.</p>
+
+<div style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
+    <img src="/img/articles/consultancy2.jpeg" alt="Consultancy Image" width="400" style="display: block; margin-left: auto; margin-right: auto;">
+</div>
+
+<h3>Our consulting services help public service organisations keep pace with the changes</h3>
+
+<p>ICPS acknowledges and understands that the problems public service needs to tackle are complex. ICPS has developed a unique capability in working with complexity and our consultants have consistently provided solutions demonstrating that performance can be improved, but more importantly, this improved performance can be sustained, and organisations left more resilient to manage future challenges. ICPS recognises that changes to culture, organisational structures, capabilities, governance, and workflows are critical to the long-term success of an organisation. ICPS consultants can help identify transformation opportunities and help your organisation implement them.</p>
+
+<h3>Who are we and how can we help you?</h3>
+
+<p>ICPS works with multi-lateral and public service organisations to improve their work, driving transformations that have a significant, positive, and long-term impact. ICPS’s large team of consultants support organisations, around the world with decades of experience and insight. ICPS consultants are passionate believers in the power of individuals, teams, and organisations working together in new ways to address some of the trickiest problems facing the public service.</p>
+
+<h3>ICPS consultants provided solutions covering:</h3>
+
+<ul>
+    <li>Strategy</li>
+    <li>Capacity building</li>
+    <li>Economic development</li>
+    <li>Industrial policy</li>
+    <li>Trade and export promotion</li>
+    <li>Attracting foreign direct investment</li>
+    <li>Economic diplomacy</li>
+    <li>Human resources</li>
+    <li>Leadership and management</li>
+    <li>Change management</li>
+    <li>Talent management</li>
+    <li>Organisational design</li>
+    <li>Pay policy</li>
+    <li>Parliamentary reform</li>
+</ul>
+
+<p>We work end-to-end, from diagnosis to delivery of lasting impact and the generation of tangible results.</p>
+
+<div style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
+    <img src="/img/articles/consultancy3.jpeg" alt="Consultancy Image" width="400" style="display: block; margin-left: auto; margin-right: auto;">
+</div>
+
+<h3>Consultancy service that promises to deliver lasting impact</h3>
+
+<p>Past clients include national and regional governments, government departments, quasi-government agencies, UN organisations as well as government-owned companies, UK Trade and Investment, the Government of British Columbia, the International Trade Centre, the Central Bank of Lebanon, the Government of Japan, the Government of Malta, the Ministry of Housing, Communities and Local Government in the UK, the House of Commons, Foreign and Commonwealth Office in the UK, European Free Trade Association (EFTA), World Organisation for Animal Health (WOAH) and many more who we have helped realise their organisational, economic and social goals.</p>
+
+<h3>ICPS consulting services:</h3>
+
+<ul>
+    <li><strong>Holistic solution.</strong> For example, our consultants had the privilege to work with the Jamaican Constabulary Force (JCF) on anti-corruption. The strategic vision of the Jamaica Constabulary was to become a high-quality professional service that is valued and trusted by all the citizens of Jamaica. Our consultant’s work here was instrumental in establishing a new fully independent law enforcement entity, known as the Major Organised Crime and Anti-Corruption Agency.</li>
+    <li><strong>Specific medium</strong> that has garnered a client’s interest. For instance, the Government of the Cayman Islands wanted to apply the ‘Five Business Case Model’ in support of strategic public sector initiatives. Our consultants provided solutions on how the model would be integrated within all future strategic work.</li>
+</ul>
+
+<p>ICPS brings expertise from multiple sectors and geographies so that you can capitalise on emerging trends and new opportunities for transformation. Our consultants are specialists in many sectors. Many have held senior positions in the Civil Services before becoming expert consultants. ICPS public service consulting transforms service delivery and helps organisations achieve high-impact outcomes. ICPS consulting service, prepares organisations to address the challenges they are facing, enabling them to provide better services, and have resilience to face future challenges. The ICPS structured approach aligns with the goals and objectives the organisation wants to achieve. ICPS consulting projects have improved the service quality for users, driven financial performance, developed and strengthened strategies, transformed organisational structure, sparked innovation and built capabilities.</p>
+
+<div style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
+    <img src="/img/articles/consultancy4.jpeg" alt="Consultancy Image" width="400" style="display: block; margin-left: auto; margin-right: auto;">
+</div>
+
+<p>If you are a public service organisation looking for a consultant/s with extensive experience and a proven track record of success to help you navigate these challenging times, ICPS would be pleased to discuss how we could help you achieve your goals.</p>
+`
+    },
   ];
 
   export default articles
