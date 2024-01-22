@@ -1,13 +1,13 @@
 const articles = [
-    {
-      id: "1",
-      link: 'articles/1',
-      category: 'Learning',
-      image: '/img/photos/b11-full.jpg',
-      title: 'Learning, Development, and Training Trends for 2023',
-      description: `Explore the top trends in learning, development, and training for 2023. This insightful article uncovers the latest strategies and tools shaping professional growth and skill enhancement.`,
-      date: '5 Jan 2023', 
-      content: `
+  {
+    id: "1",
+    link: 'articles/1',
+    category: 'Learning',
+    image: '/img/photos/b11-full.jpg',
+    title: 'Learning, Development, and Training Trends for 2023',
+    description: `Explore the top trends in learning, development, and training for 2023. This insightful article uncovers the latest strategies and tools shaping professional growth and skill enhancement.`,
+    date: '5 Jan 2023',
+    content: `
       <p>As we step into 2023, public sector professionals must keep up with the rapidly evolving landscape of learning, development, and training to maintain a competitive edge in their careers. This article explores the key trends that are expected to shape the professional development landscape in 2023.</p>
       <h3 id="emphasis-on-soft-skills">Emphasis on Soft Skills</h3>
       <p>While technical expertise remains crucial, soft skills like communication, collaboration, and problem-solving are increasingly recognized as essential for success in the public sector. Organizations are emphasizing the development of these skills through interactive workshops, experiential learning activities, and peer mentoring programs. In 2023, expect a greater focus on nurturing soft skills to enhance teamwork, boost productivity, and foster a healthy work environment.</p>
@@ -26,16 +26,16 @@ const articles = [
       <h3 id="conclusion">Conclusion</h3>
       <p>In conclusion, the learning, development, and training landscape in 2023 will be characterized by a focus on soft skills, personalized learning experiences, remote and hybrid learning, microlearning, immersive technologies, learning analytics, and social learning. Public sector professionals must stay abreast of these trends to remain competitive in their careers, while organizations must adapt and invest in these areas to develop a highly skilled and agile workforce capable of navigating the challenges of the future.</p>
       `
-    },
-    {
-      id: "2",
-      link: 'articles/2',
-      category: 'Learning',
-      image: '/img/photos/b6.jpg',
-      title: 'The Promise of Immersive Learning: A New Approach to Professional Development',
-      description: `Discover the potential of immersive learning as a groundbreaking approach to professional development. This article highlights how engaging, interactive experiences can revolutionize skill acquisition and career growth.`,
-      date: '12 Feb 2022', 
-      content: `
+  },
+  {
+    id: "2",
+    link: 'articles/2',
+    category: 'Learning',
+    image: '/img/photos/b6.jpg',
+    title: 'The Promise of Immersive Learning: A New Approach to Professional Development',
+    description: `Discover the potential of immersive learning as a groundbreaking approach to professional development. This article highlights how engaging, interactive experiences can revolutionize skill acquisition and career growth.`,
+    date: '12 Feb 2022',
+    content: `
       <p>As we continue to explore innovative ways to enhance learning and development, immersive learning has emerged as a powerful tool that holds the potential to revolutionize professional development. By providing realistic, engaging, and interactive experiences, immersive learning transcends the limitations of traditional training methods, offering a more dynamic and effective approach to professional development. This article delves into the promise of immersive learning and its potential impact on professional development across industries.</p>
 <p>Immersive learning harnesses cutting-edge technologies such as virtual reality (VR), augmented reality (AR), and mixed reality (MR) to create lifelike simulations and interactive environments. These technologies allow learners to engage in hands-on training, practice complex skills, and develop problem-solving abilities in a risk-free setting. The immersive nature of these learning experiences not only deepens understanding but also improves retention and recall, fostering more effective learning outcomes.</p>
 <p>One of the key advantages of immersive learning is the opportunity to develop and hone soft skills in a controlled environment. With the increasing emphasis on collaboration, communication, and emotional intelligence in the workplace, immersive learning experiences can provide a platform for professionals to practice these vital skills. For instance, virtual role-playing scenarios can help employees practice conflict resolution, negotiation, and decision-making, enhancing their ability to navigate challenging situations in real-life settings.</p>
@@ -46,16 +46,16 @@ const articles = [
 <p>Finally, immersive learning encourages social learning and collaboration, which are essential components of professional growth. By creating virtual spaces where professionals can share knowledge, exchange ideas, and learn from each other&#39;s experiences, immersive learning technologies facilitate networking, mentorship, and knowledge sharing. These collaborative learning environments not only promote the development of individual skills but also contribute to the cultivation of high-performing teams and the overall success of the organization.</p>
 <p>In conclusion, the promise of immersive learning lies in its ability to transform professional development by leveraging cutting-edge technologies and innovative approaches to learning. By offering realistic, engaging, and interactive experiences, immersive learning holds the potential to reshape the way professionals acquire new skills, collaborate with peers, and grow in their careers. As more organizations recognize the value of immersive learning, it is poised to become a cornerstone of professional development in the years to come, fostering a highly skilled and agile workforce capable of navigating the challenges of an ever-evolving global landscape. </p>
 `
-    },
-    {
-      id: "3",
-      link: 'articles/3',
-      category: 'Learning',
-      image: '/img/photos/b5.jpg',
-      title: 'Micro-Learning: Relevance for the Public Sector',
-      description: `Explore microlearning as a cost-effective training option for public sector.`,
-      date: '2 Feb 2023', 
-      content: `
+  },
+  {
+    id: "3",
+    link: 'articles/3',
+    category: 'Learning',
+    image: '/img/photos/b5.jpg',
+    title: 'Micro-Learning: Relevance for the Public Sector',
+    description: `Explore microlearning as a cost-effective training option for public sector.`,
+    date: '2 Feb 2023',
+    content: `
       <p>With the complexities of governance increasing by the day, the public sector has felt an urgent need to adopt a more modern and innovative outlook, especially in its training and development requirements. A large number of employees, the complex nature of the governance along with lack of sufficient funds make it critical for public sector organisations to implement efficient solutions to streamline the task of effective training and development of their employees. In recent years, microlearning has proved to be a promising solution.</p>
 <p>While there is no official definition of microlearning, all microlearning-based training has one common characteristic, namely, brevity. It is a method of delivering educational or training content in small, bite-sized pieces that can be easily consumed and retained by learners. While microlearning can take many forms, from videos to immediate feedback to formal feedback at the end of the day, short, targeted online demonstrations or tutorials are the most common. The average length of micro-learning pieces is between 4-5 minutes and represents a movement away from deep attention learning to hyper-learning.</p>
 <p>Microlearning is based on the concept of the “forgetting curve” developed by the psychologist Hermann Ebbinghaus. It demonstrated that when people take in large amounts of information, retention of what was learned tends to degrade over time. Big data has also played an important role in the development of microlearning. In the age of big data, human’s attention span is decreasing. The vast amount of available information creates a deficit of attention. It is thus necessary to allocate that attention efficiently. This makes microlearning important since it emphasises short learning duration. </p>
@@ -91,16 +91,16 @@ const articles = [
 <p>However, microlearning may not be the end all be all of learning and development, as it is sometimes portrayed. This is so because, firstly, it cannot create experts which public sector employees are often required to be. Due to the shortness of its content, microlearning does not have the capacity to delve deep into a particular subject matter.</p>
 <p>Also, while basic concepts can be understood with microlearning, complex topics requiring advanced skills, require long-form learning. While it is not impossible it generally requires a lot more effort, defeating the entire purpose of microlearning. Thus, there is room for both forms of training in most public sector organisations. Some subject matter will be suitable for microlearning formats, particularly skills-based training, while for other topics traditional training might be more suitable. However, microlearning is an emerging model of training that can enable public sector employees gain new knowledge or skills just in time to meet their immediate needs in this fast-changing world. </p>
 `
-    },
-    {
-      id: "4",
-      link: 'articles/4',
-      category: 'Learning',
-      image: '/img/photos/b2.jpg',
-      title: "The 70-20-10 Model for Learning and Development",
-      description: `The 70-20-10 rule reveals that individuals tend to learn 70% of their knowledge from challenging experiences and assignments, 20% from developmental relationships, and 10% from coursework and training.`,
-      date: '25 Apr 2023', 
-      content: `
+  },
+  {
+    id: "4",
+    link: 'articles/4',
+    category: 'Learning',
+    image: '/img/photos/b2.jpg',
+    title: "The 70-20-10 Model for Learning and Development",
+    description: `The 70-20-10 rule reveals that individuals tend to learn 70% of their knowledge from challenging experiences and assignments, 20% from developmental relationships, and 10% from coursework and training.`,
+    date: '25 Apr 2023',
+    content: `
       <p>The ability of an organisation to innovate, change and become more effective is dependent upon the skills and capabilities of its employees, thus highlighting the importance of professional training and development. The 70-20-10 learning model has proved a time-tested solution for organisational learning. Designed to integrate three types of learning (experiential, social and formal), this model has been adopted globally in both the private and public sectors to support organisational learning.</p>
       <p>70 20 10 learning is a ratio of multi-dimensional ways of learning, including experiences, collaboration and training. This ratio describes the ideal combination of different learnings for successful personal and organisational capability development. </p>
       <h3>70-20-10 Explained</h3>
@@ -138,16 +138,16 @@ const articles = [
 <p>The learning model is still relevant as long as it is not used very rigidly and only as a guideline. The 70-20-10 model is likely to give better results if the ratio is modified according to the specific industry and the kind of learners that the concerned organisation has. Some jobs may need more formal training while some may require more on the job learning. Thus, there must be a balance between the three forms of learning, and formal training can be designed such that it incorporates both on the job training and social learning.</p>
 <p>When the learning model’s elements are not perceived to be implemented in isolation but rather in an integrated and complementary manner, this model has the potential to lead to newer opportunities to both develop and implement new capabilities. It is for this reason that the 70:20:10 model is still extensively used across the globe in both private and public sectors as a guideline for training employees.</p>
       `
-    },
-    {
-      id: "5",
-      link: 'articles/5',
-      category: 'Learning',
-      image: '/img/photos/b3.jpg',
-      title: "Blended Learning Solutions: The Future of Training?",
-      description: `Discover how blended learning is transforming professional development for a wider audience, anytime, anywhere.`,
-      date: '7 Mar 2023', 
-      content: `
+  },
+  {
+    id: "5",
+    link: 'articles/5',
+    category: 'Learning',
+    image: '/img/photos/b3.jpg',
+    title: "Blended Learning Solutions: The Future of Training?",
+    description: `Discover how blended learning is transforming professional development for a wider audience, anytime, anywhere.`,
+    date: '7 Mar 2023',
+    content: `
       <p>With the challenges facing the globe in light of the pandemic, soaring energy costs and international conflict, the need for a well-trained and adept public sector has never been so great. Yet, at the same time, remote working, multi-generational learners and budgetary pressures have made it difficult for many learning and development departments to ensure that their employees are receiving the professional development that their roles require. A number of experts have argued that the answer to these challenges is blended learning.</p>
 <h3>What is Blended Learning?</h3>
 <p>Andrew Wickham, an expert in professional training, has described blended learning as the delivery of knowledge through the coordinated combination of digital content (e-learning) and live training (face-to-face or video conference). This model of training benefits from allowing learners to determine their own pace, and for being more adaptable and thus suitable for a wider audience.</p>
@@ -165,16 +165,16 @@ const articles = [
 <p>Blended learning solutions, though, do not come without their challenges. For instance, difficulty in acquiring new technology skills and the over-use of technology are issues that can already be observed. Resistance to organisational change might also pose a barrier to blended learning initiatives in some parts of the world.</p>
 <p>Yet, in a world of ever-changing technology, it is perhaps inevitable that blended learning will become the new norm for professional development. Its benefits – cost effective, flexible – will increasingly outweigh barriers to entry, especially as virtual reality begins to enter the mainstream.</p>
 `
-    },
-    {
-      id: "6",
-      link: 'articles/6',
-      category: 'Learning',
-      image: '/img/photos/b7.jpg',
-      title: "High Performance & Agile Delivery in Public Service",
-      description: `Uncover the keys to achieving high performance and agile delivery in public service, promoting efficiency, adaptability, and exceptional results in a rapidly changing landscape.`,
-      date: '11 Oct 2022', 
-      content: `
+  },
+  {
+    id: "6",
+    link: 'articles/6',
+    category: 'Learning',
+    image: '/img/photos/b7.jpg',
+    title: "High Performance & Agile Delivery in Public Service",
+    description: `Uncover the keys to achieving high performance and agile delivery in public service, promoting efficiency, adaptability, and exceptional results in a rapidly changing landscape.`,
+    date: '11 Oct 2022',
+    content: `
       <p>In today&#39;s fast-paced and ever-changing world, public service organizations must adapt and evolve to effectively respond to the needs of the communities they serve. One way to achieve this is by embracing high performance and agile delivery methodologies, which promote efficiency, innovation, and continuous improvement. In this article, we will discuss the importance of high performance and agile delivery in the public service, explore key principles and best practices, and highlight how these approaches can drive professional development and organizational success.</p>
 <h3 id="what-are-high-performance-and-agile-delivery-">What are High Performance and Agile Delivery?</h3>
 <p>High performance refers to the ability of an organization to achieve superior results and outcomes by optimizing processes, systems, and resources. In the context of public service, high performance involves delivering high-quality services and solutions to citizens and stakeholders in an efficient, cost-effective, and timely manner.</p>
@@ -206,16 +206,16 @@ const articles = [
 <h3 id="conclusion">Conclusion</h3>
 <p>Incorporating high performance and agile delivery methodologies into public service organizations can lead to significant benefits, including improved service delivery, greater adaptability, enhanced innovation, and increased employee engagement. By fostering a culture of collaboration, continuous improvement, and adaptability, public service professionals can drive their own professional development while also contributing to the success and effectiveness of their organizations. Ultimately, this will lead to a more responsive, efficient, and innovative public sector, better equipped to meet the needs of the communities it serves.</p>
 `
-    },
-    {
-      id: "7",
-      link: 'articles/7',
-      category: 'Learning',
-      image: '/img/photos/b7.jpg',
-      title: "Empowering Public Service Professionals: A Human-Centered Approach to Skill Development",
-      description: `Explore a human-centered approach to professional development in public service, emphasizing five key design principles and the importance of a strong learning ecosystem.`,
-      date: '23 Mar 2023', 
-      content: `
+  },
+  {
+    id: "7",
+    link: 'articles/7',
+    category: 'Learning',
+    image: '/img/photos/b7.jpg',
+    title: "Empowering Public Service Professionals: A Human-Centered Approach to Skill Development",
+    description: `Explore a human-centered approach to professional development in public service, emphasizing five key design principles and the importance of a strong learning ecosystem.`,
+    date: '23 Mar 2023',
+    content: `
       <h3 id="the-importance-of-professional-development-in-public-service">The Importance of Professional Development in Public Service</h3>
 <p>As the public service environment evolves, it is crucial to develop and retain current employees while ensuring that new hires can quickly acquire the necessary skills to fill gaps in the workforce. At the core of this transformation is a shift in focus towards the learner as the central element in professional development.</p>
 <h3 id="understanding-learning-as-a-human-behavior">Understanding Learning as a Human Behavior</h3>
@@ -241,16 +241,16 @@ const articles = [
 <li>Governance &amp; Accountability: <a href="https://youtu.be/Nysqk">https://youtu.be/Nysqk</a></li>
 </ol>
 `
-    },
-    {
-      id: "8",
-      link: 'articles/8',
-      category: 'Learning',
-      image: '/img/photos/b1.jpg',
-      title: "Professional Training After Covid-19",
-      description: `After Covid, are we going back to in-person training…… or is there something better that follows on from Virtual learning – Hybrid Learning?`,
-      date: '1 May 2023', 
-      content: `
+  },
+  {
+    id: "8",
+    link: 'articles/8',
+    category: 'Learning',
+    image: '/img/photos/b1.jpg',
+    title: "Professional Training After Covid-19",
+    description: `After Covid, are we going back to in-person training…… or is there something better that follows on from Virtual learning – Hybrid Learning?`,
+    date: '1 May 2023',
+    content: `
       <h3>ICPS's Experience</h3>
 <p>ICPS has been delivering high quality training for individuals and organisations in public service for over 20 years. We pride ourselves in being able to design training that balances academic rigour with practical experience. ICPS’s tried and tested learning content and our trainers are not just experts in learning but also practitioners in Policy, Governance, Parliament alongside all aspects Public Administration and have provided the very best in-person training throughout our operational history.</p>
 <p>We have been at the forefront of delivering innovation in the learning space during this period. To put it in context public institutions been transitioning from ‘pencils to powerpoint’, moving the paper office to the digital office over a 40+ year trajectory. Distance digital communication and working has been a growing component of every work-place, public and private, in the 21st century. Recent events sped up this evolution, and ICPS which had invested heavily on internal innovation in this space, prototyping virtual courses and preparing virtual provision frameworks, was ready to seamlessly deploy them when needed.</p>
@@ -301,16 +301,16 @@ const articles = [
 <p>Tracy concluded “We have already successfully delivered several pilots of the ICPS Hybrid approach and feedback has been excellent and we are now capable of delivering a Hybrid approach for our entire open course schedule. And additionally, are able to deliver a Hybrid approach for organisations who want courses specifically developed for groups of learners”</p>
 <p>For more information contact Tracy Capaldi-Drewett at tracy.drewett@parlicentre.co.uk.</p>
 `
-    },
-    {
-      id: "9",
-      link: 'articles/9',
-      category: 'Consultancy',
-      image: '/img/articles/consultancy1.jpeg',
-      title: "ICPS Public Service Consultancy Services",
-      description: "Public service organisations are key to societal progress and well-being. Today, however, they are challenged by rapid changes, grappling with global instability and tough economic choices.",
-      date: '17 Oct 2023', 
-      content: `
+  },
+  {
+    id: "9",
+    link: 'articles/9',
+    category: 'Consultancy',
+    image: '/img/articles/consultancy1.jpeg',
+    title: "ICPS Public Service Consultancy Services",
+    description: "Public service organisations are key to societal progress and well-being. Today, however, they are challenged by rapid changes, grappling with global instability and tough economic choices.",
+    date: '17 Oct 2023',
+    content: `
 <p><strong>Public service organisations</strong> are key to societal progress and well-being. Today, however, they are challenged by rapid changes, grappling with global instability and tough economic choices. Public service organisations around the world are under increasing pressure to deliver more for their citizens, from seamless public services to new policies that address complex social and economic challenges. Yet, it is often found that the systems, structures, and processes of these organisations are not set up to respond to the complex challenges they are facing. The <strong>International Centre for Parliamentary Studies (ICPS)</strong> offers consulting services to help the public service meet and surpass these expectations. If you are a public service organisation, wanting to keep pace with the changes, we can help you innovate, transform and work smarter, to enhance services, improve outcomes and achieve more.</p>
 
 <div style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
@@ -369,7 +369,40 @@ const articles = [
 
 <p>If you are a public service organisation looking for a consultant/s with extensive experience and a proven track record of success to help you navigate these challenging times, ICPS would be pleased to discuss how we could help you achieve your goals.</p>
 `
-    },
-  ];
+  },
+  {
+    "id": "10",
+    "link": "articles/10",
+    "category": "E-Learning",
+    "image": "/img/articles/elearning1.jpeg",
+    "title": "Enhancing Public Sector Service Delivery: The Importance of Tailored E-Learning",
+    "description": "An exploration of how tailored e-learning programs can revolutionize public sector service delivery by equipping employees with necessary skills and knowledge.",
+    "date": "22 Jan 2024",
+    "content": `
+        <p>The public sector is fundamental to our society. Collectively, it is the world’s largest service provider. Thus the skills of the workforce within the sector are critical to successfully delivering on a variety of social and economic priorities. However, as a result of technological and cultural changes, demographic shifts, and the ever-increasing movement of money, goods and people, the challenges facing the public sector are becoming even more complex. In such a context, public service workforces face numerous challenges, further escalating problems relating to public service delivery. Achieving excellence in service delivery requires not only efficient processes and effective policies but also a workforce equipped with the necessary skills and knowledge. For public organisations to remain competitive, they must therefore provide their employees with the relevant skills that will allow them to be creative and innovative members of their organisations, as well as enable them to contribute to excellence in service delivery.</p>
+        
+        <p>Organisational training is the answer to providing the necessary skills to the public sector workforce. The goal of such training programmes is to bridge the skill gap between the actual and desired job performance. However, the challenge in training lies in catering to a diverse range of employees with varying learning requirements within the organisation. Training programmes across the world have often suffered from ineffectiveness. Many such training programmes fail to produce the expected results because they are unable to meet the diverse needs of various employees within the organisation. To improve overall performance, a strategic approach to training becomes indispensable. Recognising the workforce’s heterogeneity, it is critical to use tailored training methodologies that resonate with different segments of the audience. Diversity is inherent in public service organisations, which includes individuals from various backgrounds, experiences, and job roles. Therefore, a one-size-fits-all training approach falls short of accommodating the unique learning needs and preferences of employees. Organisations can foster a more inclusive learning environment by utilising a mix of training mediums tailored to different segments of the workforce.</p>
+        
+        <div style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
+          <img src="/img/articles/elearning2.jpeg" style="display: block; margin-left: auto; margin-right: auto; width: 50%;">
+        </div>
 
-  export default articles
+        <p>As one of the world’s largest public sector training organisation, ICPS believes in creating training programmes that can cater to the needs of every single employee in an organisation. ICPS’s portfolio of courses includes 1 – 5-day accredited courses with the option of in-person, virtual as well as “hybrid” delivery. Considering how pressed for time and resources public servants often are, we have also now introduced a range of online (eLearning) courses. These courses are offered at introductory, intermediate and mastery levels, fulfilling the needs of employees at all levels of a public sector organisation. With over 20 years of experience, ICPS is uniquely positioned to share know-how and identify emerging trends in best practice from which public sector organisations may be able to benefit.</p>
+        
+        <h3>The Power of E-Learning in Public Sector Training</h3>
+        <p>While different forms of training serve unique purposes, e-learning emerges as a versatile and potent tool that can effectively address the multifaceted training requirements within public service organisations. E-learning offers unparalleled advantages, serving as an instrumental medium to reach and engage the largest section of employees within an organisation. ICPS’s e-learning courses are designed in a way that they are flexible, scalable, and accessible, making them ideal for delivering training content to a diverse audience spread across geographical locations and time zones. </p>
+        
+        <p>Courses such as ‘Effective Writing Skills (EWS) for the Public Service’ are ideal for frontline workers whose schedules are often packed and demanding. These concise and targeted sessions cater to their need for quick, on-the-go access to relevant information, ensuring minimal disruption to their operational duties. Managers, tasked with supervisory responsibilities, might benefit from courses within our ‘The Successful Managers Toolkits for the Public Service.’ These courses focus on leadership skills in public service, which are critical for improving organisational performance and service delivery. While our e-learning programme on ‘Innovation and Change for Success in the Public Service’, is well suited for people at the leadership level. This programme not only imparts advanced skills but also fosters an environment where high-level strategies can be addressed and refined.</p>
+
+        <div style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
+          <img src="/img/articles/elearning3.jpeg" style="display: block; margin-left: auto; margin-right: auto; width: 50%;">
+        </div>
+
+        <h3>Impact on Organisational Performance</h3>
+        <p>Thus e-learning as a medium of training allows the learner to leverage technology to personalise learning experiences. The benefits of e-learning extend beyond individual skill enhancement; they have a profound impact on organisational performance. By equipping employees with relevant and up-to-date knowledge, public service entities can enhance operational efficiency thereby improving service delivery which ultimately, increases stakeholder satisfaction. Furthermore, harnessing the potential of e-learning to cater to the diverse learning needs within public service organisations is pivotal for fostering a culture of continuous improvement and superior service delivery. Embracing a tailored approach to training and utilising the right training mediums for different segments of the workforce, ensures that every individual contributes optimally toward the organisation's overarching goals. </p>
+      `
+  }
+
+];
+
+export default articles
