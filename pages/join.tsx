@@ -7,7 +7,7 @@ import { Contact } from 'components/blocks/contact';
 import { useRouter } from 'next/router';
 import { useAuth } from 'auth/AuthProvider';
 
-const ServicesTwo: NextPage = () => {
+const JoinPage: NextPage = () => {
 
   const router = useRouter();
   const { isLoggedIn } = useAuth()
@@ -44,4 +44,4 @@ const ServicesTwo: NextPage = () => {
   );
 };
 
-export default ServicesTwo;
+export default JoinPage;

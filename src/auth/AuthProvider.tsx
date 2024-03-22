@@ -117,11 +117,15 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         localStorage.setItem(refreshTokenStorageKey, refreshToken);
 
         setIsLoggedIn(true);
-      } else {
-        signout()
+      } else if (!response.ok) {
+        const errorData = await response.json();
+        const errorMessage = errorData["hydra:description"] || 'Error signing up. Please try again.';
+        signout();
+        alert(errorMessage);
       }
     } catch (error) {
-      signout()
+      signout();
+      alert('Error signing up: ' + error);
     }
   };
 
