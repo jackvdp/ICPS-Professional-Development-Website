@@ -591,6 +591,57 @@ const articles = [
   
       <p>And/or contact Conrad Hamer at <a href="mailto:conrad.hamer@parlicentre.org">conrad.hamer@parlicentre.org</a></p>
     `
+  },
+  {
+    "id": "13",
+    "link": "articles/13",
+    "category": "eLearning in Public Service",
+    "image": "/img/articles/skillwise/image1.jpeg",
+    "title": "ICPS Expands Its Reach with Strategic SkillWise Acquisition",
+    "description": "In the spring of 2024, the International Centre for Parliamentary Studies (ICPS) completed the strategic acquisition of SkillWise UK Limited, a leader in technology-based solutions that enhance business operations and drive organisational transformation.",
+    "date": "20 November 2024",
+    "content": `
+
+      <p>In the spring of 2024, the International Centre for Parliamentary Studies (ICPS) completed the strategic acquisition of SkillWise UK Limited, a leader in technology-based solutions that enhance business operations and drive organisational transformation. This partnership has significantly broadened ICPS’s capabilities, combining its expertise in public service training with SkillWise’s proven technological systems. Together, the two organisations now provide innovative, scalable, and measurable solutions to meet the evolving needs of public service organisations worldwide.</p>
+
+      <p>For 24 years, SkillWise has developed robust systems widely used across Europe and Africa, including by the British Ministry of Justice, where its platforms play a vital role in training operations. By integrating SkillWise’s cutting-edge technologies with ICPS’s established reputation for high-quality training, the acquisition delivers a comprehensive professional development offering that addresses the diverse challenges faced by modern public service organisations.</p>
+
+      <h2>Transforming Electoral Training with the ICPS SkillWise Electoral Solution</h2>
+
+      <p>One of the flagship applications of the SkillWise platform is the ICPS SkillWise Electoral Solution, designed specifically for Electoral Management Bodies (EMBs). Managing election staff training presents unique challenges: permanent staff require meaningful career development opportunities, while temporary staff must be rapidly trained to meet the demands of election cycles.</p>
+
+      <p>The Electoral Solution addresses both challenges by delivering tailored training programmes, tracking learner progress at granular levels, and maintaining detailed records of workplace skills and competencies. With its flexible structure, the platform adapts to the specific methodologies of EMBs, supporting training allocation, learner management, and results tracking at local, regional, and national levels. Real-time reporting ensures that organisations can provide clear, empirical evidence of staff competency, instilling confidence in the integrity of election processes.</p>
+
+      <div style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
+              <img src="/img/articles/skillwise/image2.png" style="display: block; margin-left: auto; margin-right: auto; width: 50%;">
+            </div>
+
+      <h2>Supporting Organisational Development with the Knowledge and Training Record System</h2>
+
+      <p>The Knowledge and Training Record System (KTRS) is another powerful configuration of the SkillWise platform, designed to help organisations manage their training objectives, content delivery, and assessments. Organisations can create customised learning pathways tailored to individual, team, or organisational needs, with ICPS’s expert team available to assist in developing these pathways.</p>
+
+      <p>KTRS enables seamless integration of third-party content, ensuring organisations can maximise existing training resources. When new content is required, ICPS offers bespoke development services at preferential rates, further enhancing the platform’s value. Whether supporting spontaneous training needs or structured qualification programs, KTRS provides the flexibility to meet the demands of single organisations or entire ministries, ensuring a tailored and impactful learning experience.</p>
+
+      <div style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
+              <img src="/img/articles/skillwise/image3.png" style="display: block; margin-left: auto; margin-right: auto; width: 50%;">
+            </div>
+
+      <h2>Ensuring Competency with VQManager</h2>
+
+      <p>For over 20 years, VQManager has been a trusted solution for tracking competency-based qualifications and workplace learning. This configuration of the SkillWise platform excels at recording hands-on skills, creating auditable records that validate user competency over time. Organisations can implement unlimited learning paths, whether recognised qualifications or bespoke programs, tailored to their operational needs.</p>
+
+      <p>VQManager’s advanced reporting capabilities provide administrators with real-time insights into learner progress, enabling proactive intervention to ensure goals are met. A key feature is its mobile-friendly interface, allowing learners and supervisors to capture evidence of workplace skills directly as they occur. This functionality has made VQManager an essential tool for organisations like the British Ministry of Justice, which relies on the system for delivering competency-based qualifications.</p>
+
+      <div style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
+              <img src="/img/articles/skillwise/image4.png" style="display: block; margin-left: auto; margin-right: auto; width: 50%;">
+            </div>
+
+      <h2>A Comprehensive Solution for Public Service</h2>
+
+      <p>The integration of SkillWise into ICPS has created a platform uniquely positioned to address the challenges of public service capacity building. By combining SkillWise’s technical expertise with ICPS’s training and instructional design, the platform delivers scalable, cost-effective, and impactful solutions tailored to the needs of modern public service organisations.</p>
+
+      <p>Whether supporting electoral management, organisational training goals, or competency-based qualifications, ICPS SkillWise provides a seamless, end-to-end professional development and competency tracking system. The partnership reflects ICPS’s ongoing commitment to empowering public service organisations with the tools they need to build capacity, improve accountability, and drive meaningful transformation.</p>
+    `
   }
 ];
 
