@@ -15,7 +15,7 @@ const Footer: FC = () => {
               <img className="mb-4 ms-n1" src="/img/ICPSLogo-White.png" width={120} alt="" />
 
               <p className="mb-4">
-                © 2023 ICPS. <br className="d-none d-lg-block" />
+                © {new Date().getFullYear()} ICPS. <br className="d-none d-lg-block" />
                 All rights reserved.
               </p>
 
@@ -53,9 +53,9 @@ const Footer: FC = () => {
 export default Footer;
 
 const footerNav = [
-    { title: 'About Us', url: '/about' },
-    { title: 'Our Courses', url: 'https://parlicentre.org/courses/' },
-    { title: 'Upcoming Courses', url: 'https://parlicentre.org/courses/upcoming' },
-    { title: 'Terms of Use', url: 'https://parlicentre.org/terms-conditions' },
-    { title: 'Privacy Policy', url: 'https://parlicentre.org/privacy-policy' }
-  ];
+  { title: 'About Us', url: '/about' },
+  { title: 'Our Courses', url: 'https://parlicentre.org/courses/' },
+  { title: 'Upcoming Courses', url: 'https://parlicentre.org/courses/upcoming' },
+  { title: 'Terms of Use', url: 'https://parlicentre.org/terms-conditions' },
+  { title: 'Privacy Policy', url: 'https://parlicentre.org/privacy-policy' }
+];
