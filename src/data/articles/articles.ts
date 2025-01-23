@@ -727,7 +727,6 @@ const articles = [
       <p>By investing in L&D and leveraging certifications, public sector organizations not only strengthen their internal capabilities but also reinforce their social contract with citizens. This dual impact underscores the importance of prioritizing L&D as a strategic imperative for the public sector worldwide.</p>
     `
   }
-  
 ];
 
 export default articles
