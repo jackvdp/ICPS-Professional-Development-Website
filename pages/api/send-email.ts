@@ -8,8 +8,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method === 'POST') {
     const { message } = req.body;
 
+    if (!message) {
+      return res.status(400).json({ message: "No message provided in request body" });
+    }
+
     const msg = {
-      to: 'professional@parlicentre.org',
+      to: 'jack.vanderpump@publicpolicyexchange.co.uk',
       from: 'jack.vanderpump@publicpolicyexchange.co.uk',
       subject: 'New Contact Form Submission',
       text: message,

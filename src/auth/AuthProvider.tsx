@@ -1,172 +1,399 @@
-import React, { createContext, useState, useEffect, useContext, ReactNode } from 'react';
-import jwtDecode from 'jwt-decode';
+import React, {ReactNode, useEffect, useState} from 'react';
+import {createCustomUserData, CreateUserData, createUserDataForDB, MutableUserData} from 'backend/models/user';
+import {createClient} from "../backend/supabase/component";
+import {AuthContext, CustomAuthError} from './useAuth';
+import {User} from '@supabase/supabase-js';
 
-interface DecodedToken {
-  exp: number;
+interface AuthState {
+    isLoggedIn: boolean;
+    currentUser: User | null;
+    loading: boolean;
+    error: CustomAuthError | null;
 }
 
 interface AuthProviderProps {
-  children: ReactNode;
+    children: ReactNode;
 }
 
-const tokenStorageKey = 'token'
-const refreshTokenStorageKey = 'refresh_token'
-const baseURL = 'https://icpsknowledgenetwork.com/api'
+export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
+    const [state, setState] = useState<AuthState>({
+        isLoggedIn: false,
+        currentUser: null,
+        loading: true,
+        error: null
+    });
 
-export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  const [isLoadingLogInInfo, setIsLoadingLogInInfo] = useState<boolean>(true);
+    const supabase = createClient();
 
-  useEffect(() => {
-    const token = localStorage.getItem(tokenStorageKey);
-    const refreshToken = localStorage.getItem(refreshTokenStorageKey);
+    useEffect(() => {
+        checkUser();
 
-    if (token && refreshToken) {
-      const decoded: DecodedToken = jwtDecode(token);
-      const currentTime = Date.now() / 1000;
+        // Set up auth state listener
+        const {data: authListener} = supabase.auth.onAuthStateChange((event, session) => {
+            // Ignore PASSWORD_RECOVERY events so the user isn’t auto‑signed in
+            if (event === 'PASSWORD_RECOVERY') {
+                console.log("PASSWORD_RECOVERY event detected – not auto signing in.");
+                return;
+            }
+            if (event === 'SIGNED_IN' && session?.user) {
+                setState(prev => ({
+                    ...prev,
+                    isLoggedIn: true,
+                    currentUser: session.user,
+                    loading: false,
+                    error: null,
+                }));
+            } else if (event === 'SIGNED_OUT') {
+                setState(prev => ({
+                    ...prev,
+                    isLoggedIn: false,
+                    currentUser: null,
+                    loading: false,
+                    error: null,
+                }));
+            }
+        });
 
-      if (decoded.exp < currentTime) {
-        refreshTokens();
-      } else {
-        setIsLoggedIn(true);
+        return () => {
+            authListener?.subscription.unsubscribe();
+        };
+    }, []);
 
-        const timeoutId = setTimeout(() => {
-          refreshTokens();
-        }, (decoded.exp - currentTime - 60) * 1000);
+    const checkUser = async () => {
+        try {
+            const {data: {user}, error} = await supabase.auth.getUser();
 
-        return () => clearTimeout(timeoutId);  // Clear the timer when the component unmounts
-      }
-    }
-    setIsLoadingLogInInfo(false)
-  }, []);
+            if (error) {
+                throw error;
+            }
 
-  const login = async (username: string, password: string) => {
-    try {
-      const response = await fetch(`${baseURL}/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          username,
-          password,
-        }),
-      });
+            setState(prev => ({
+                ...prev,
+                isLoggedIn: !!user,
+                currentUser: user,
+                loading: false,
+                error: null
+            }));
+        } catch (error) {
+            handleError(error);
+        }
+    };
 
-      if (response.ok) {
-        const data = await response.json();
-        const { token, refresh_token } = data;
+    const handleError = (error: any) => {
+        const authError: CustomAuthError = {
+            message: error.message || 'An unexpected error occurred',
+            code: error.code,
+            details: error.details
+        };
 
-        localStorage.setItem(tokenStorageKey, token);
-        localStorage.setItem(refreshTokenStorageKey, refresh_token);
+        setState(prev => ({
+            ...prev,
+            error: authError,
+            loading: false
+        }));
+    };
 
-        setIsLoggedIn(true);
-      } else {
-        signout();
-        throw new Error('Login failed');
-      }
-    } catch (error) {
-      console.log(error)
-      signout();
-      throw error;
-    }
-  };
+    const login = async (email: string, password: string): Promise<void> => {
+        try {
+            setState(prev => ({...prev, loading: true, error: null}));
 
-  const signup = async (
-    email: string,
-    password: string,
-    firstName: string,
-    lastName: string,
-    phone: string,
-    organisation: string,
-    role: string
-  ) => {
-    try {
-      const response = await fetch(`${baseURL}/users/register`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          firstname: firstName,
-          lastname: lastName,
-          email,
-          password,
-          phone,
-          organisation,
-          position: role,
-          // Fields not provided are left blank
-          country: "",
-          birthdate: "",
-          profileName: "",
-          profileTitle: "",
-          isNewsletterSubscribe: true,
-          isProfileRestricted: true,
-          interests: [],
-          skills: [],
-          biography: "",
-          profileImage: ""
-        }),
-      });
+            const {data, error} = await supabase.auth.signInWithPassword({
+                email,
+                password
+            });
 
-      if (response.ok) {
-        const data = await response.json();
-        const { token, refreshToken } = data;
+            if (error) throw error;
 
-        localStorage.setItem(tokenStorageKey, token);
-        localStorage.setItem(refreshTokenStorageKey, refreshToken);
+            setState(prev => ({
+                ...prev,
+                isLoggedIn: true,
+                currentUser: data.user,
+                loading: false,
+                error: null
+            }));
+        } catch (error) {
+            handleError(error);
+            throw error;
+        }
+    };
 
-        setIsLoggedIn(true);
-      } else if (!response.ok) {
-        const errorData = await response.json();
-        const errorMessage = errorData["hydra:description"] || 'Error signing up. Please try again.';
-        signout();
-        alert(errorMessage);
-      }
-    } catch (error) {
-      signout();
-      alert('Error signing up: ' + error);
-    }
-  };
+    const logInWithMagicLink = async (email: string, redirectPath?: string): Promise<void> => {
+        try {
+            setState(prev => ({...prev, loading: true, error: null}));
 
-  const signout = () => {
-    localStorage.removeItem(tokenStorageKey);
-    localStorage.removeItem(refreshTokenStorageKey);
-    setIsLoggedIn(false);
-  };
+            const redirectUrl = redirectPath 
+                ? `${process.env.NEXT_PUBLIC_BASE_URL}${redirectPath}` 
+                : process.env.NEXT_PUBLIC_BASE_URL;
 
-  const refreshTokens = async () => {
-    // Implement the logic to refresh the token using the refresh token
-    // Update localStorage with the new token and refresh token
-    // Update the isLoggedIn state if necessary
-  };
+            const {data, error} = await supabase.auth.signInWithOtp({
+                email,
+                options: {
+                    shouldCreateUser: false,
+                    emailRedirectTo: redirectUrl,
+                },
+            });
 
-  return (
-    <AuthContext.Provider value={{ isLoggedIn, isLoadingLogInInfo, setIsLoggedIn, login, signup, signout }}>
-      {children}
-    </AuthContext.Provider>
-  );
+            if (error) {
+                console.log("error", error)
+                throw error
+            }
+
+            setState(prev => ({
+                ...prev,
+                loading: false,
+            }));
+        } catch (error) {
+            handleError(error);
+            throw error;
+        }
+    };
+
+    const createUser = async (userData: CreateUserData): Promise<boolean> => {
+        try {
+            setState(prev => ({...prev, loading: true, error: null}));
+
+            // Sign up with auth
+            const {data, error} = await supabase.auth.signUp({
+                email: userData.email,
+                password: userData.password,
+                options: {
+                    data: createCustomUserData(userData)  // Store base data in metadata
+                }
+            });
+
+            if (error) throw error;
+
+            // Create queryable user profile
+            const {error: profileError} = await supabase
+                .from('users')
+                .insert([
+                    createUserDataForDB(data.user?.id, userData)
+                ]);
+
+            if (profileError) throw profileError;
+
+            setState(prev => ({
+                ...prev,
+                loading: false,
+                error: null
+            }));
+
+            return true;
+        } catch (error) {
+            handleError(error);
+            return false;
+        }
+    };
+
+    const createUserWithoutSignup = async (userData: CreateUserData): Promise<boolean> => {
+        try {
+            setState(prev => ({...prev, loading: true, error: null}));
+
+            const response = await fetch('/api/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || 'Failed to create user');
+            }
+
+            const data = await response.json();
+
+            setState(prev => ({
+                ...prev,
+                loading: false,
+                error: null
+            }));
+
+            return true;
+        } catch (error) {
+            setState(prev => ({...prev, loading: false}));
+            handleError(error);
+            return false;
+        }
+    };
+
+    const getUser = async (): Promise<MutableUserData | null> => {
+        try {
+            const user = state.currentUser;
+            if (user === null) return null;
+
+            const {data, error} = await supabase
+                .from('users')
+                .select('*')
+                .eq('id', user.id)
+                .single();
+
+            console.log("error", error)
+            if (error) throw error;
+
+            return {
+                id: data.id,
+                firstname: data.firstname,
+                lastname: data.lastname,
+                email: data.email,
+                phone: data.phone,
+                country: data.country,
+                birthdate: data.birthdate,
+                biography: data.biography,
+                position: data.position,
+                organisation: data.organisation,
+                profileImage: data.profile_image,
+                role: data.role,
+            };
+        } catch (error) {
+            handleError(error);
+            return null;
+        }
+    };
+
+    const updateUser = async (userData: MutableUserData, userID: string): Promise<MutableUserData | null> => {
+        try {
+            setState(prev => ({...prev, loading: true, error: null}));
+
+            // Call the API endpoint instead of direct Supabase calls
+            const response = await fetch(`/api/users/${userID}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || 'Failed to update user');
+            }
+
+            const result = await response.json();
+
+            setState(prev => ({
+                ...prev,
+                loading: false,
+                error: null
+            }));
+
+            return result.user;
+        } catch (error) {
+            handleError(error);
+            return null;
+        }
+    };
+
+    // Shared method to handle user deletion core functionality
+    const deleteUserCore = async (userID: string): Promise<boolean> => {
+        try {
+            // Call your secure API route to delete the user
+            const response = await fetch(`/api/users/${userID}`, {
+                method: 'DELETE',
+                headers: {'Content-Type': 'application/json'},
+            });
+            const data = await response.json();
+            if (!response.ok) {
+                throw new Error(data.error || "Failed to delete user. Please try again later.");
+            }
+
+            // Reset state after deletion
+            setState(prev => ({
+                ...prev,
+                isLoggedIn: false,
+                currentUser: null,
+                loading: false,
+                error: null,
+            }));
+            return true;
+        } catch (error: any) {
+            handleError(error);
+            throw error;
+        }
+    };
+
+    const deleteUser = async (userID: string, password: string): Promise<boolean> => {
+        try {
+            setState(prev => ({...prev, loading: true, error: null}));
+            if (!state.currentUser?.email) {
+                throw new Error("No current user email found");
+            }
+
+            // Verify user password
+            const supabase = createClient();
+            const {error: signInError} = await supabase.auth.signInWithPassword({
+                email: state.currentUser.email,
+                password: password,
+            });
+
+            if (signInError) {
+                throw new Error("Incorrect password");
+            }
+
+            // Proceed with deletion
+            return await deleteUserCore(userID);
+        } catch (error: any) {
+            // Set loading to false in case of error
+            setState(prev => ({...prev, loading: false}));
+            handleError(error);
+            throw error;
+        }
+    };
+
+// Method for admin use that doesn't require password
+    const deleteUserWithoutPassword = async (userID: string): Promise<boolean> => {
+        try {
+            setState(prev => ({...prev, loading: true, error: null}));
+            if (!state.currentUser?.email) {
+                throw new Error("No current user email found");
+            }
+
+            return await deleteUserCore(userID);
+        } catch (error: any) {
+            setState(prev => ({...prev, loading: false}));
+            handleError(error);
+            throw error;
+        }
+    };
+
+    const signout = async (): Promise<void> => {
+        try {
+            setState(prev => ({...prev, loading: true, error: null}));
+
+            const {error} = await supabase.auth.signOut();
+
+            if (error) throw error;
+
+            setState(prev => ({
+                ...prev,
+                isLoggedIn: false,
+                currentUser: null,
+                loading: false,
+                error: null
+            }));
+        } catch (error) {
+            handleError(error);
+        }
+    };
+
+    return (
+        <AuthContext.Provider value={{
+            isLoggedIn: state.isLoggedIn,
+            currentUser: state.currentUser,
+            loading: state.loading,
+            error: state.error,
+            login,
+            logInWithMagicLink,
+            signout,
+            createUser,
+            createUserWithoutSignup,
+            getUser,
+            updateUser,
+            deleteUser,
+            deleteUserWithoutPassword
+        }}>
+            {children}
+        </AuthContext.Provider>
+    );
 };
-
-/****************************************
- * MARK: Custom Hook to use the auth context
- ****************************************/
-
-export const useAuth = (): AuthContextProps => {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
-  return context;
-};
-
-interface AuthContextProps {
-  isLoggedIn: boolean;
-  setIsLoggedIn: (loggedIn: boolean) => void;
-  isLoadingLogInInfo: boolean;
-  login: (username: string, password: string) => Promise<void>;
-  signup: (email: string, password: string, firstName: string, lastName: string, phone: string, organisation: string, role: string) => Promise<void>;
-  signout: () => void;
-}
-
-const AuthContext = createContext<AuthContextProps | undefined>(undefined);

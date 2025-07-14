@@ -1,118 +1,56 @@
-import { NextPage } from 'next';
-import { Fragment, useEffect, useState } from 'react';
-// -------- custom component -------- //
-import { Navbar } from 'components/blocks/navbar';
-import { Footer } from 'components/blocks/footer';
+import {GetServerSideProps, NextPage} from 'next';
+import {Fragment} from 'react';
+import {Navbar} from 'components/blocks/navbar';
+import {Footer} from 'components/blocks/footer';
 import PageProgress from 'components/common/PageProgress';
-import { useRouter } from 'next/router';
-import { useAuth } from 'auth/AuthProvider';
+import Account from 'components/blocks/account/Account';
+import CustomHead from "components/common/CustomHead";
+import {createClient} from "backend/supabase/server-props";
+import {User} from "@supabase/supabase-js";
+import {createMutableUserData, MutableUserData} from "../src/backend/models/user";
 
-const Account: NextPage = () => {
+interface AccountPageProps {
+    user: MutableUserData
+}
 
-    const router = useRouter();
-    const { isLoggedIn, isLoadingLogInInfo, signout } = useAuth()
-    const [user, setUser] = useState<User | null>(null);
-
-    useEffect(() => {
-        if (!isLoggedIn && !isLoadingLogInInfo) {
-            router.push('/join-to-access');
-        } else if (isLoggedIn) {
-            const token = localStorage.getItem('token');
-            fetch(`https://icpsknowledgenetwork.com/api/users/me`, {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            })
-                .then((response) => response.json())
-                .then((data) => setUser(data))
-                .catch((error) => console.error("Error fetching user data:", error));
-        }
-    }, [isLoggedIn, isLoadingLogInInfo]);
-
-    const signOutClicked = () => {
-        router.push('/');
-        signout()
-    }
+const AccountPage: NextPage<AccountPageProps> = ({user}) => {
 
     return (
         <Fragment>
-            <PageProgress />
+            <CustomHead
+                title="Account"
+                description="Manage your Professional Development Network profile, update your professional information, and customize your career development preferences and notifications."
+            />
+            <PageProgress/>
 
-            {/* ========== header section ========== */}
-            <Navbar />
+            <Navbar/>
 
-            {/* ========== body section ========== */}
-            <main className="content-wrapper">
+            <Account user={user}/>
 
-                <section className="wrapper bg-soft-primary">
-                    <div className="container pt-8 pb-8 pt-md-14 pb-md-14 text-center">
-                        <div className="row">
-                            <div className="col-md-10 col-lg-8 col-xl-7 mx-auto">
-                                <div className="post-header">
-                                    <h1 className="display-1">Account</h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <div className="container mt-4 mb-4 d-flex justify-content-center">
-                    <div className="card" style={{ width: 'auto', display: 'inline-block' }}>
-                        <div className="card-body px-16">
-                            {user ? (
-                                <>
-                                    <h2 className="card-title mb-4">{`${user.firstname} ${user.lastname}`}</h2>
-                                    <p>Email: {user.email}</p>
-                                    <p>Phone: {user.phone}</p>
-                                    <p>Position: {user.position}</p>
-                                    <p>Organisation: {user.organisation}</p>
-                                </>
-                            ) : (
-                                <p>Loading...</p>
-                            )}
-                            <button
-                                className="btn btn-sm btn-outline-red my-custom-btn"
-                                onClick={signOutClicked}>Sign Out
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-            </main>
-
-            {/* ========== footer section ========== */}
-            <Footer />
-        </Fragment >
+            <Footer/>
+        </Fragment>
     );
 };
 
-export default Account;
+export default AccountPage;
 
-interface User {
-    "@context": string;
-    "@id": string;
-    "@type": string;
-    id: number;
-    firstname: string;
-    lastname: string;
-    email: string;
-    phone: string;
-    country: string;
-    birthdate: string;
-    profileName: string;
-    profileTitle: string;
-    isNewsletterSubscribe: boolean;
-    isVerified: boolean;
-    isBlocked: boolean;
-    isProfileRestricted: boolean;
-    isOnline: boolean;
-    isMVP: boolean;
-    interests: string[];
-    skills: string[];
-    biography: string;
-    position: string;
-    organisation: string;
-    profileImage: string;
-    lastOnlineAt: string;
-    isRegistrationComplete: boolean;
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+    const supabase = createClient(ctx);
+
+    // Check session; ensure an admin session
+    const {data: {session}} = await supabase.auth.getSession();
+    if (!session) {
+        return {
+            redirect: {
+                destination: '/',
+                permanent: false,
+            },
+        };
+    }
+
+    return {
+        props: {
+            user: createMutableUserData(session.user)
+        }
+    }
 }

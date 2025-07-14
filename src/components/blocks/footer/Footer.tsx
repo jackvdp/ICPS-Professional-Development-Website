@@ -1,7 +1,7 @@
 import { FC } from 'react';
 // -------- custom component -------- //
 import NextLink from 'components/reuseable/links/NextLink';
-import SocialLinks from 'components/reuseable/SocialLinks';
+import SocialLinks from 'components/reuseable/links/SocialLinks';
 // -------- data -------- //
 import { contactInfo } from 'data/contact';
 
@@ -12,7 +12,7 @@ const Footer: FC = () => {
         <div className="row gy-6 gy-lg-0">
           <div className="col-lg-4">
             <div className="widget">
-              <img className="mb-4 ms-n1" src="/img/ICPSLogo-White.png" width={120} alt="" />
+              <img className="mb-4 ms-n1" src="/img/logos/ICPSLogo-White.png" width={120} alt="" />
 
               <p className="mb-4">
                 © {new Date().getFullYear()} ICPS. <br className="d-none d-lg-block" />

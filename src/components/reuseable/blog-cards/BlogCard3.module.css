@@ -1,0 +1,12 @@
+.aspectRatio16_9 {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    position: relative;
+}
+
+.aspectRatio16_9 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}

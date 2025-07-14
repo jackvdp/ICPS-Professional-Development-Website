@@ -1,9 +1,10 @@
 import { FC } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 // ==================================================
 type AccordionProps = {
   no: string;
-  body: string | React.ReactNode;
+  body: string;
   heading: string;
   expand: boolean;
   type?: 'plain' | 'shadow-lg';
@@ -34,7 +35,7 @@ const Accordion: FC<AccordionProps> = (props) => {
         className={`accordion-collapse collapse ${expand && 'show'}`}
       >
         <div className="card-body">
-          <p>{body}</p>
+          <ReactMarkdown>{body}</ReactMarkdown>
         </div>
       </div>
     </div>

@@ -1,53 +1,61 @@
-import { NextPage } from 'next';
-import { Fragment } from 'react';
+import {NextPage} from 'next';
+import {Fragment} from 'react';
 // -------- custom component -------- //
-import { Navbar } from 'components/blocks/navbar';
-import { Footer } from 'components/blocks/footer';
+import {Navbar} from 'components/blocks/navbar';
+import {Footer} from 'components/blocks/footer';
 import PageProgress from 'components/common/PageProgress';
-import { AboutMembers } from 'components/blocks/about';
-import { CTAJoin } from 'components/blocks/call-to-action';
-import { useAuth } from 'auth/AuthProvider';
+import CTA from 'components/blocks/call-to-action/CTA';
+import HomeHeader from 'components/blocks/home/HomeHeader';
+import HomeEventsSidebar from 'components/blocks/events/EventsSidebar';
+import HomeAbout from 'components/blocks/home/HomeAbout';
+import HomeArticles from 'components/blocks/home/HomeArticles';
+import Features from 'components/blocks/features/features';
+import {useAuth} from 'auth/useAuth';
+import CustomHead from "../src/components/common/CustomHead";
 
-const ServicesTwo: NextPage = () => {
+const Home: NextPage = () => {
 
-  const { isLoggedIn } = useAuth()
+    const {isLoggedIn} = useAuth();
 
-  return (
-    <Fragment>
-      <PageProgress />
+    return (
+        <Fragment>
+            <CustomHead
+                title="Home"
+                description="Professional Development Network - A global community connecting public service professionals to share knowledge, best practices, and foster collaboration in professional development."
+            />
+            <PageProgress/>
 
-      <Navbar />
+            <Navbar barSitsOnTop={true}/>
 
-      <main className="content-wrapper">
-        {/* ========== page title section ========== */}
-        <section
-          className="wrapper image-wrapper bg-image bg-overlay text-white"
-          style={{ backgroundImage: 'url(/img/photos/unitednations.jpeg)' }}
-        >
-          <div className="container pt-19 pt-md-21 pb-18 pb-md-20 text-center">
-            <div className="row">
-              <div className="col-md-10 col-lg-8 col-xl-7 col-xxl-6 mx-auto">
-                <h1 className="display-1 text-white mb-3">Professional Development Members' Network</h1>
-                <p className="lead fs-lg px-md-3 px-lg-7 px-xl-9 px-xxl-10">
-                Elevate your public service career — enhance skills, connect, and unlock opportunities.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+            <main className="content-wrapper">
+                <HomeHeader/>
 
-        <div className="container py-14 py-md-16">
-            <AboutMembers />
-        </div>
+                <div className="container py-5 py-md-10">
 
-        {!isLoggedIn && <CTAJoin />}
-        
-      </main>
+                    <div className="row gx-lg-8 gx-xl-12">
+                        <div className="col-md-8">
+                            <HomeAbout/>
+                        </div>
+                        <div className="col-md-4">
+                            <HomeEventsSidebar/>
+                        </div>
+                    </div>
 
-      {/* ========== footer section ========== */}
-      <Footer />
-    </Fragment>
-  );
+                </div>
+
+                <HomeArticles/>
+
+                <div className='pb-5 pb-md-10'>
+                    <Features/>
+                </div>
+
+                {!isLoggedIn && <CTA/>}
+
+            </main>
+
+            <Footer/>
+        </Fragment>
+    );
 };
 
-export default ServicesTwo;
+export default Home;
